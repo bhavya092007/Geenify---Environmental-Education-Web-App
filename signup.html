@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Signup</title>
+    <link rel="stylesheet" href="signup.css" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="logo-modified-removebg-preview.png"
+    />
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+  </head>
+  <body>
+    <div class="login-container">
+      <h3 class="title">Welcome 😊</h3>
+      <h3 class="title2">
+        Create your account and start making a difference for our planet
+      </h3>
+
+      <label for="name" class="label">Full Name</label>
+      <input
+        id="name"
+        type="text"
+        placeholder="Enter your full name"
+        class="input-field"
+      />
+
+      <label for="email" class="label">Email</label>
+      <input
+        id="email"
+        type="email"
+        placeholder="Enter your email"
+        class="input-field"
+      />
+
+      <label for="password" class="label">Password</label>
+      <input
+        id="password"
+        type="password"
+        placeholder="Create a password"
+        class="input-field"
+      />
+
+      <label for="confirm_password" class="label">Confirm Password</label>
+      <input
+        id="confirm_password"
+        type="password"
+        placeholder="Confirm your password"
+        class="input-field"
+      />
+
+      <div class="terms-container">
+        <input type="checkbox" id="terms" required />
+        <label for="terms">
+          I agree to the
+          <a href="terms.html" target="_blank">Terms of Service</a>
+          and
+          <a href="privacy.html" target="_blank">Privacy Policy</a>
+        </label>
+      </div>
+
+      <button class="login-button">Create Account</button>
+
+      <!-- Google Sign-In button chatgpt ne kiya hai  -->
+      <div
+        id="g_id_onload"
+        data-client_id="YOUR_GOOGLE_CLIENT_ID"
+        data-callback="handleCredentialResponse"
+        data-auto_prompt="false"
+        data-ux_mode="popup"
+      ></div>
+
+      <div
+        class="g_id_signin"
+        data-type="standard"
+        data-size="large"
+        data-theme="outline"
+        data-text="continue_with"
+        data-shape="rectangular"
+        data-logo_alignment="left"
+      ></div>
+
+      <script>
+        // Checkbox validation chatgpt ne kiya hai
+        document
+          .querySelector(".login-button")
+          .addEventListener("click", function (e) {
+            const termsChecked = document.getElementById("terms").checked;
+            if (!termsChecked) {
+              e.preventDefault();
+              alert(
+                "⚠️ Please agree to the Terms of Service and Privacy Policy before signing up."
+              );
+            }
+          });
+
+        // Google response handler chatgpt ne kiya hai
+        function handleCredentialResponse(response) {
+          console.log("Encoded JWT ID token: " + response.credential);
+
+          const data = parseJwt(response.credential);
+          console.log("User data:", data);
+          alert("Welcome, " + data.name + " (" + data.email + ")");
+        }
+
+        function parseJwt(token) {
+          const base64Url = token.split(".")[1];
+          const base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
+          const jsonPayload = decodeURIComponent(
+            atob(base64)
+              .split("")
+              .map((c) => "%" + ("00" + c.charCodeAt(0).toString(16)).slice(-2))
+              .join("")
+          );
+          return JSON.parse(jsonPayload);
+        }
+      </script>
+
+      <!--  -->
+
+      <p class="signup-text">
+        Already have an account? <a href="signin.html">Sign in here</a>
+      </p>
+    </div>
+  </body>
+</html>

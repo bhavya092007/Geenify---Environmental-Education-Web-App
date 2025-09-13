@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Signin</title>
+    <link rel="stylesheet" href="signin.css" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="images/logo-modified-removebg-preview.png"
+    />
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+  </head>
+  <body>
+    <div class="login-container">
+      <img src="images/logo-modified.png" alt="Logo" class="logo" />
+      <h3 class="title">Welcome Back</h3>
+      <h3 class="title2">Sign in to continue your learning journey</h3>
+
+      <label for="email" class="label">Email</label>
+      <input
+        id="signin_email"
+        type="email"
+        placeholder="Enter your email"
+        class="input-field"
+      />
+
+      <label for="signin_password" class="label">Password</label>
+      <input
+        id="signin_password"
+        type="password"
+        placeholder="Enter your password"
+        class="input-field"
+      />
+
+      <button class="login-button">Sign In</button>
+
+      <!-- Google Sign-In button ye chatgpt ne kiya hai -->
+      <div
+        id="g_id_onload"
+        data-client_id="389602983024-j6n91mmkqua2sjatmn1e7brvd0nkaene.apps.googleusercontent.com"
+        data-callback="handleCredentialResponse"
+        data-auto_prompt="false"
+        data-ux_mode="popup"
+      ></div>
+
+      <div
+        class="g_id_signin"
+        data-type="standard"
+        data-size="large"
+        data-theme="outline"
+        data-text="continue_with"
+        data-shape="rectangular"
+        data-logo_alignment="left"
+      ></div>
+
+      <script>
+        function handleCredentialResponse(response) {
+          console.log("Encoded JWT ID token: " + response.credential);
+
+          const data = parseJwt(response.credential);
+          console.log("User data:", data);
+          alert("Welcome, " + data.name + " (" + data.email + ")");
+        }
+
+        function parseJwt(token) {
+          const base64Url = token.split(".")[1];
+          const base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
+          const jsonPayload = decodeURIComponent(
+            atob(base64)
+              .split("")
+              .map((c) => "%" + ("00" + c.charCodeAt(0).toString(16)).slice(-2))
+              .join("")
+          );
+          return JSON.parse(jsonPayload);
+        }
+      </script>
+
+      <!--  -->
+
+      <div class="extra-links">
+        <a href="forgot_password.html" class="forgot-password-link"
+          >Forgot Password?</a
+        >
+      </div>
+
+      <p class="signup-text">
+        Don’t have an account? <a href="signup.html">Sign Up</a>
+      </p>
+    </div>
+  </body>
+</html>

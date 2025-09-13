@@ -1,0 +1,136 @@
+body {
+  font-family: Arial, sans-serif;
+  background: url("images/leaf-background.webp") 
+              no-repeat center center/cover;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.login-container {
+  width: 90%;
+  max-width: 400px;
+  padding: 25px 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  border-radius: 12px;
+  background-color: #fff;
+}
+
+.title {
+  text-align: center;
+  font-size: 26px;
+  margin-bottom: 10px;
+  color: #29d912;
+  font-weight: bold;
+}
+
+.title2 {
+  text-align: center;
+  font-size: 14px;
+  margin-bottom: 20px;
+  color: #777;
+}
+
+.label {
+  display: block;
+  font-size: 15px;
+  margin-bottom: 6px;
+  color: #333;
+}
+
+.input-field {
+  width: 95%;
+  padding: 12px;
+  margin-bottom: 18px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 15px;
+  transition: border 0.3s;
+}
+
+.input-field:focus {
+  border-color: #29d912;
+  outline: none;
+}
+
+.login-button {
+  width: 100%;
+  padding: 12px;
+  background-color: #5cb602;
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.login-button:hover {
+  background-color: #29d912;
+}
+
+.extra-links {
+  text-align: center;
+  margin-top: 8px;
+}
+
+.forgot-password-link {
+  font-size: 14px;
+  color: #007bff;
+ 
+}
+
+.signup-text {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 14px;
+  color: #555;
+}
+
+a {
+  text-decoration: none;
+  color: #5cb602;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: #29d912;
+}
+
+/* 📱 Mobile Friendly from chatgpt */
+@media (max-width: 480px) {
+  .login-container {
+    padding: 20px 15px;
+  }
+  .title {
+    font-size: 22px;
+  }
+  .title2 {
+    font-size: 13px;
+  }
+  .input-field {
+    font-size: 14px;
+    padding: 10px;
+  }
+  .login-button {
+    font-size: 15px;
+    padding: 10px;
+  }
+}
+
+.g_id_signin {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+img.logo {
+  display: block;
+  margin: 0 auto 15px auto;
+  width: 120px;
+  height: auto;
+}
