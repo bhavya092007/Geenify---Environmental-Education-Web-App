@@ -1,0 +1,99 @@
+/* Base layout */
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to bottom right, #f0fdf4, #eff6ff);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+}
+
+.leaderboard-container {
+  width: 100%;
+  max-width: 600px;
+  background: #fff;
+  padding: 24px;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.title {
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  color: #047857; /* green-700 */
+  margin-bottom: 20px;
+}
+
+/* Leaderboard list */
+.leaderboard-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.leaderboard-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px;
+  border-radius: 12px;
+}
+
+/* Top 3 styles */
+.first {
+  background: #fef9c3; /* yellow-100 */
+  border-left: 4px solid #f59e0b; /* yellow-500 */
+}
+
+.second {
+  background: #f3f4f6; /* gray-100 */
+  border-left: 4px solid #9ca3af; /* gray-400 */
+}
+
+.third {
+  background: #ffedd5; /* orange-100 */
+  border-left: 4px solid #fb923c; /* orange-400 */
+}
+
+/* Other players */
+.other {
+  background: #eff6ff; /* blue-50 */
+}
+
+.player {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+}
+.leaderboard-list :hover {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #b1074ead;
+  color: rgb(0,0,0);
+  
+
+}
+
+/* Badges for ranks */
+.badge {
+  background: #16a34a; /* green-600 */
+  color: #fff;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 4px 8px;
+  border-radius: 9999px; /* pill */
+}
+
+.name {
+  font-weight: 500;
+}
+
+.score {
+  color: #000000; /* green-700 */
+  font-weight: bold;
+}
