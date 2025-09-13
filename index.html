@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="logo-modified-removebg-preview.png"
+    />
+    <title>Greenify - Environmental Studies for Students</title>
+    <!-- Link external CSS -->
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <header>
+      <img src="logo-modified.png" alt="Greenify Logo" class="logo" />
+      <span class="text">Greenify</span>
+
+      <!-- Navigation -->
+      <nav class="navigation" id="navMenu">
+        <a href="home.html">Home</a>
+        <a href="signup.html">Signup</a>
+        <a href="terms.html">About</a>
+      </nav>
+
+      <!-- Theme Toggle Button -->
+      <button id="themeToggle" class="theme-toggle">🌙</button>
+
+      <!-- Profile Dropdown -->
+      <div class="profile-container">
+        <button id="dropdownBtn" class="profile-btn">
+          <img src="https://i.pravatar.cc/40" alt="User" class="profile-pic" />
+        </button>
+        <div id="dropdownMenu" class="dropdown-menu">
+          <a href="#">Profile</a>
+          <a href="#">Contact</a>
+          <a href="#">Dashboard</a>
+          <a href="#">Badges</a>
+          <a href="#">Logout</a>
+        </div>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="hero-text">
+        <h1>Environmental Studies for Students</h1>
+        <p>
+          Learn how to protect the environment and make the world a greener
+          place.
+        </p>
+        <button onclick="goToHomepage()">Explore Now 🚀</button>
+      </div>
+      <div class="hero-image">
+        <img
+          src="index_photo_cover-removebg-preview.png"
+          alt="Students learning nature"
+          class="img"
+        />
+      </div>
+    </section>
+
+    <div class="about-container">
+      <div class="info-section">
+        <div class="text-content">
+          <h2>What is Greenify? 🤔</h2>
+          <p>
+            <strong>Greenify</strong> is a dynamic and interactive web platform
+            dedicated to making environmental education fun, accessible, and
+            engaging for everyone. It's a one-stop destination where you can
+            learn about our planet, connect with a like-minded community, and
+            discover actionable ways to make a positive impact.
+          </p>
+        </div>
+        <div class="image-content">
+          <img
+            src="what is greenify.png"
+            alt="A vibrant image representing the Greenify platform"
+          />
+        </div>
+      </div>
+
+      <div class="info-section reverse">
+        <div class="text-content">
+          <h2>What are the features of Greenify? 🌟</h2>
+          <ul>
+            <li>
+              <strong>🎓 Learning Modules:</strong> Dive deep into specific
+              environmental topics.
+            </li>
+            <li>
+              <strong>🧩 Fun Quizzes:</strong> Test your knowledge and earn
+              badges.
+            </li>
+            <li>
+              <strong>🎮 Engaging Games:</strong> Learn complex concepts through
+              play.
+            </li>
+            <li>
+              <strong>🤝 Thriving Community:</strong> Join forums and
+              participate in group challenges.
+            </li>
+            <li>
+              <strong>📰 Latest News:</strong> Stay updated with positive
+              environmental news.
+            </li>
+            <li>
+              <strong>💡 Fun Facts:</strong> Get your daily dose of amazing and
+              shareable facts.
+            </li>
+          </ul>
+        </div>
+        <div class="image-content">
+          <img
+            src="future 1.png"
+            alt="Collage of Greenify features like games, quizzes, and community icons"
+          />
+        </div>
+      </div>
+
+      <div class="info-section">
+        <div class="text-content">
+          <h2>What is the purpose of Greenify? 🎯</h2>
+          <p>
+            The core purpose of Greenify is to
+            <strong>educate, engage, and empower</strong>. We break down complex
+            environmental issues, make learning an active experience, and give
+            you the confidence to make more sustainable choices in your daily
+            life.
+          </p>
+        </div>
+        <div class="image-content">
+          <img
+            src="purpose png.png"
+            alt="Image showing people empowered and taking environmental action"
+          />
+        </div>
+      </div>
+
+      <div class="info-section reverse">
+        <div class="text-content">
+          <h2>Why choose Greenify? ✅</h2>
+          <p>
+            Greenify stands out by offering a unique, all-in-one approach. We
+            provide <strong>trustworthy information</strong> in a
+            <strong>positive and action-oriented</strong> way. You're not just
+            learning alone; you're joining a supportive community dedicated to
+            creating a healthier planet for everyone.
+          </p>
+        </div>
+        <div class="image-content">
+          <img
+            src="why greenify png.png"
+            alt="A person smiling while using the Greenify website on a laptop"
+          />
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-section about">
+          <h3>🌿 Greenify</h3>
+          <p>
+            An educational platform to inspire students to adopt sustainable,
+            eco-friendly practices and make the world greener, one step at a
+            time.
+          </p>
+        </div>
+
+        <div class="footer-section links">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="index.html">🏠 Home</a></li>
+            <li><a href="terms.html">📖 About</a></li>
+            <li><a href="help.html">🧑‍💻 Help and Support</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section contact">
+          <h3>Contact</h3>
+          <p>📧 greenifyindia01@gmail.com</p>
+          <p>📍 Ahmedabad, India</p>
+        </div>
+
+        <div class="footer-section social">
+          <h3>Follow Us</h3>
+          <div class="social-icons">
+            <a href="https://www.instagram.com/greenifyindia01/">
+              <span><i class="fa-brands fa-instagram"></i></span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        © 2025 Greenify | Designed with 💚 for the Environment
+      </div>
+    </footer>
+
+    <script>
+      // Profile dropdown
+      const dropdownBtn = document.getElementById("dropdownBtn");
+      const dropdownMenu = document.getElementById("dropdownMenu");
+
+      dropdownBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        dropdownMenu.classList.toggle("show");
+      });
+
+      document.addEventListener("click", (e) => {
+        if (
+          !dropdownBtn.contains(e.target) &&
+          !dropdownMenu.contains(e.target)
+        ) {
+          dropdownMenu.classList.remove("show");
+        }
+      });
+
+      // Hamburger menu (safe check in case no hamburger exists)
+      const hamburger = document.getElementById("hamburger");
+      const navMenu = document.getElementById("navMenu");
+
+      if (hamburger) {
+        hamburger.addEventListener("click", () => {
+          navMenu.classList.toggle("show");
+        });
+      }
+
+      // Explore button
+      function goToHomepage() {
+        window.location.href = "loading.html";
+      }
+
+      // Theme toggle
+      const themeToggle = document.getElementById("themeToggle");
+
+      themeToggle.addEventListener("click", () => {
+        document.body.classList.toggle("dark-mode");
+
+        // Switch icon 🌙 <-> 🌞
+        if (document.body.classList.contains("dark-mode")) {
+          themeToggle.textContent = "🌞";
+        } else {
+          themeToggle.textContent = "🌙";
+        }
+      });
+
+      // Accordion functionality
+      const accordions = document.querySelectorAll(".accordion-header");
+
+      accordions.forEach((header) => {
+        header.addEventListener("click", () => {
+          const item = header.parentElement;
+
+          // Close other accordions
+          document.querySelectorAll(".accordion-item").forEach((acc) => {
+            if (acc !== item) acc.classList.remove("active");
+          });
+
+          // Toggle current
+          item.classList.toggle("active");
+        });
+      });
+    </script>
+  </body>
+</html>
