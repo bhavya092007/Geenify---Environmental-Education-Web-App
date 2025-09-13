@@ -1,0 +1,116 @@
+/* Background animation */
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradient 10s ease infinite;
+}
+
+/* Scene */
+.scene {
+  width: 100px;
+  height: 100px;
+  perspective: 600px;
+  margin: auto;
+}
+
+/* Cube (3D Box) */
+.cube {
+  width: 100px;
+  height: 100px;
+  position: relative;
+  transform-style: preserve-3d;
+  transform: rotateX(0deg) rotateY(0deg);
+  transition: transform 2s ease-out;
+  cursor: pointer;
+}
+
+.cube.challenge .face {
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+}
+
+.cube .face {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background: linear-gradient(135deg, #06b6d4, #3b82f6);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Position faces */
+.front {
+  transform: rotateY(0deg) translateZ(50px);
+}
+.back {
+  transform: rotateY(180deg) translateZ(50px);
+}
+.right {
+  transform: rotateY(90deg) translateZ(50px);
+}
+.left {
+  transform: rotateY(-90deg) translateZ(50px);
+}
+.top {
+  transform: rotateX(90deg) translateZ(50px);
+}
+.bottom {
+  transform: rotateX(-90deg) translateZ(50px);
+}
+
+/* Streak Badge */
+.streak-badge {
+  background: linear-gradient(90deg, #facc15, #f97316);
+  color: #1f2937;
+  font-weight: bold;
+  padding: 8px 16px;
+  border-radius: 12px;
+  display: inline-block;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  font-size: 1rem;
+  animation: pulse 1.5s infinite alternate;
+}
+
+/* Gentle pulse animation */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.05);
+  }
+}
+
+/* Glow animation when streak increases */
+.glow {
+  animation: glowAnim 1s ease forwards;
+}
+
+@keyframes glowAnim {
+  0% {
+    box-shadow: 0 0 10px #facc15;
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 20px #facc15, 0 0 30px #f97316;
+    transform: scale(1.1);
+  }
+  100% {
+    box-shadow: 0 0 10px #facc15;
+    transform: scale(1);
+  }
+}
