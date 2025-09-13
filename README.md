@@ -13,10 +13,16 @@ Geenify provides a comprehensive platform for users to learn, act, and track the
 
 📱 Fully Responsive Design: A seamless experience across all devices, from desktops to mobile phones.
 
+Team Members 🚀
+1)Me
+2)Nandini Panchal
+3)Janvi Shah
+4)Niyam Jain
+5)Aarav Chauhan
+
 
 📧 Contact
 Bhavya Shah - sbhavya838@gmail.com
-
 Project Link: https://github.com/your-username/geenify-repo
 
 Thank You ☺️
