@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Eco Quiz Platform 🌍</title>
+    <link rel="stylesheet" href="quiz.css" />
+  </head>
+  <body>
+    <div class="wrap">
+      <header>
+        <h1>🌍 Environmental Quizzes</h1>
+        <button class="toggle" id="modeBtn">🌙 Dark</button>
+      </header>
+
+      <div id="menu" class="grid">
+        <div class="card">
+          <h2>Quiz 1 <span class="points">+50</span></h2>
+          <p class="desc">Questions 1–10</p>
+          <button class="startBtn" onclick="startQuiz(1)">Start Quiz</button>
+        </div>
+        <div class="card">
+          <h2>Quiz 2 <span class="points">+60</span></h2>
+          <p class="desc">Questions 11–20</p>
+          <button class="startBtn" onclick="startQuiz(2)">Start Quiz</button>
+        </div>
+        <div class="card">
+          <h2>Quiz 3 <span class="points">+70</span></h2>
+          <p class="desc">Questions 21–30</p>
+          <button class="startBtn" onclick="startQuiz(3)">Start Quiz</button>
+        </div>
+        <div class="card">
+          <h2>Quiz 4 <span class="points">+65</span></h2>
+          <p class="desc">Questions 31–40</p>
+          <button class="startBtn" onclick="startQuiz(4)">Start Quiz</button>
+        </div>
+        <div class="card">
+          <h2>Quiz 5 <span class="points">+55</span></h2>
+          <p class="desc">Questions 41–50</p>
+          <button class="startBtn" onclick="startQuiz(5)">Start Quiz</button>
+        </div>
+        <div class="card">
+          <h2>Quiz 6 <span class="points">+80</span></h2>
+          <p class="desc">Questions 51–60</p>
+          <button class="startBtn" onclick="startQuiz(6)">Start Quiz</button>
+        </div>
+        <div class="card">
+          <h2>Quiz 7 <span class="points">+60</span></h2>
+          <p class="desc">Questions 61–70</p>
+          <button class="startBtn" onclick="startQuiz(7)">Start Quiz</button>
+        </div>
+        <div class="card">
+          <h2>Quiz 8 <span class="points">+75</span></h2>
+          <p class="desc">Questions 71–80</p>
+          <button class="startBtn" onclick="startQuiz(8)">Start Quiz</button>
+        </div>
+        <div class="card">
+          <h2>Quiz 9 <span class="points">+90</span></h2>
+          <p class="desc">Questions 81–90</p>
+          <button class="startBtn" onclick="startQuiz(9)">Start Quiz</button>
+        </div>
+        <div class="card">
+          <h2>Quiz 10 <span class="points">+100</span></h2>
+          <p class="desc">Questions 91–100</p>
+          <button class="startBtn" onclick="startQuiz(10)">Start Quiz</button>
+        </div>
+      </div>
+
+      <div id="quizArea">
+        <div class="progress"><span id="prog"></span></div>
+        <div id="qcard" class="qcard"></div>
+        <div class="controls">
+          <button class="btn btn-ghost" onclick="prevQ()">⬅ Prev</button>
+          <button class="btn btn-green" onclick="nextQ()">Next ➡</button>
+          <button class="btn btn-orange" onclick="saveQ()">
+            Save for Later
+          </button>
+          <button
+            id="savedBtn"
+            class="btn btn-orange"
+            onclick="showSaved()"
+            style="display: none"
+          >
+            Saved
+          </button>
+          <button class="btn btn-danger" onclick="submitQuiz()">Submit</button>
+          <button class="btn btn-ghost" onclick="backMenu()">🏠 Menu</button>
+        </div>
+        <div id="qnav" class="qnav"></div>
+        <div id="review" class="review"></div>
+      </div>
+    </div>
+
+    <script>
+      const ALL = [
+        // Quiz 1
+        {
+          q: "Which is the largest mammal?",
+          c: ["Elephant", "Blue Whale", "Giraffe", "Shark"],
+          a: 1,
+        },
+        {
+          q: "Plants make food by?",
+          c: ["Respiration", "Photosynthesis", "Digestion", "Transpiration"],
+          a: 1,
+        },
+        {
+          q: "Capital of Japan?",
+          c: ["Beijing", "Seoul", "Tokyo", "Bangkok"],
+          a: 2,
+        },
+        {
+          q: "Most abundant gas in air?",
+          c: ["Oxygen", "Nitrogen", "CO2", "Hydrogen"],
+          a: 1,
+        },
+        {
+          q: "Who wrote Romeo & Juliet?",
+          c: ["Shakespeare", "Milton", "Wordsworth", "Keats"],
+          a: 0,
+        },
+        { q: "Red Planet?", c: ["Mars", "Jupiter", "Venus", "Saturn"], a: 0 },
+        { q: "H2O is?", c: ["Salt", "Oxygen", "Water", "Hydrogen"], a: 2 },
+        {
+          q: "Speed of light?",
+          c: ["3x10^5 km/s", "300 km/s", "1500 m/s", "30,000 km/s"],
+          a: 0,
+        },
+        {
+          q: "Father of Nation (India)?",
+          c: ["Nehru", "Gandhi", "Patel", "Ambedkar"],
+          a: 1,
+        },
+        { q: "Smallest prime number?", c: ["0", "1", "2", "3"], a: 2 },
+
+        // Quiz 2
+        {
+          q: "Which is the largest continent?",
+          c: ["Africa", "Asia", "Europe", "Australia"],
+          a: 1,
+        },
+        {
+          q: "Taj Mahal is in?",
+          c: ["Delhi", "Agra", "Jaipur", "Mumbai"],
+          a: 1,
+        },
+        {
+          q: "First President of India?",
+          c: ["Rajendra Prasad", "Nehru", "Patel", "Gandhi"],
+          a: 0,
+        },
+        {
+          q: "Fastest land animal?",
+          c: ["Cheetah", "Horse", "Leopard", "Tiger"],
+          a: 0,
+        },
+        { q: "Sun rises in the?", c: ["West", "North", "East", "South"], a: 2 },
+        {
+          q: "National bird of India?",
+          c: ["Crow", "Peacock", "Eagle", "Parrot"],
+          a: 1,
+        },
+        {
+          q: "Which gas do plants release at night?",
+          c: ["Oxygen", "CO2", "Nitrogen", "Helium"],
+          a: 1,
+        },
+        {
+          q: "Which planet has rings?",
+          c: ["Venus", "Saturn", "Mars", "Mercury"],
+          a: 1,
+        },
+        {
+          q: "Which is the hottest planet?",
+          c: ["Mercury", "Venus", "Mars", "Jupiter"],
+          a: 1,
+        },
+        {
+          q: "Which is the smallest ocean?",
+          c: ["Indian", "Pacific", "Atlantic", "Arctic"],
+          a: 3,
+        },
+
+        // Quiz 3
+        {
+          q: "World Environment Day?",
+          c: ["5 June", "22 April", "1 May", "15 Aug"],
+          a: 0,
+        },
+        {
+          q: "Which is a renewable source?",
+          c: ["Coal", "Petrol", "Solar", "Diesel"],
+          a: 2,
+        },
+        {
+          q: "Deforestation causes?",
+          c: ["Rain", "Soil Erosion", "Flood control", "Fertility"],
+          a: 1,
+        },
+        {
+          q: "Largest river in the world?",
+          c: ["Nile", "Amazon", "Ganga", "Yangtze"],
+          a: 1,
+        },
+        {
+          q: "Ozone protects us from?",
+          c: ["CO2", "UV rays", "O2", "Dust"],
+          a: 1,
+        },
+        {
+          q: "Which is non-renewable?",
+          c: ["Wind", "Coal", "Solar", "Water"],
+          a: 1,
+        },
+        { q: "Which is a greenhouse gas?", c: ["O2", "N2", "CO2", "Ar"], a: 2 },
+        {
+          q: "Recycling saves?",
+          c: ["Energy", "Pollution", "Resources", "All"],
+          a: 3,
+        },
+        {
+          q: "Which animal is endangered?",
+          c: ["Tiger", "Cow", "Dog", "Goat"],
+          a: 0,
+        },
+        { q: "Earth Day?", c: ["5 June", "22 April", "10 Oct", "1 Dec"], a: 1 },
+
+        // Quiz 4
+        {
+          q: "Which is the tallest mountain?",
+          c: ["K2", "Everest", "Kanchenjunga", "Alps"],
+          a: 1,
+        },
+        {
+          q: "Which is the coldest place?",
+          c: ["Siberia", "Antarctica", "Alaska", "Arctic"],
+          a: 1,
+        },
+        { q: "Gas used by divers?", c: ["O2", "He", "CO2", "N2"], a: 1 },
+        {
+          q: "Which is the largest desert?",
+          c: ["Sahara", "Thar", "Gobi", "Arctic"],
+          a: 0,
+        },
+        {
+          q: "Largest ocean?",
+          c: ["Atlantic", "Pacific", "Indian", "Arctic"],
+          a: 1,
+        },
+        {
+          q: "Soil erosion is prevented by?",
+          c: ["Trees", "Cement", "Plastic", "Iron"],
+          a: 0,
+        },
+        {
+          q: "Which is the cleanest energy?",
+          c: ["Coal", "Petrol", "Solar", "Diesel"],
+          a: 2,
+        },
+        {
+          q: "Which is a fossil fuel?",
+          c: ["Coal", "Wind", "Water", "Sun"],
+          a: 0,
+        },
+        {
+          q: "Population Day?",
+          c: ["5 June", "11 July", "22 April", "1 May"],
+          a: 1,
+        },
+        {
+          q: "Largest forest?",
+          c: ["Amazon", "Sundarbans", "Congo", "Daintree"],
+          a: 0,
+        },
+
+        // Quiz 5
+        {
+          q: "Symbol of peace?",
+          c: ["Tiger", "Dove", "Lion", "Elephant"],
+          a: 1,
+        },
+        {
+          q: "Which country has Great Wall?",
+          c: ["India", "China", "Japan", "Russia"],
+          a: 1,
+        },
+        {
+          q: "Which is a water pollutant?",
+          c: ["Plastic", "Sand", "Soil", "Stone"],
+          a: 0,
+        },
+        {
+          q: "Which animal gives us wool?",
+          c: ["Sheep", "Cow", "Goat", "Dog"],
+          a: 0,
+        },
+        { q: "Largest democracy?", c: ["India", "USA", "UK", "China"], a: 0 },
+        { q: "Gas for respiration?", c: ["O2", "CO2", "N2", "H2"], a: 0 },
+        { q: "Gas for photosynthesis?", c: ["O2", "CO2", "N2", "Ar"], a: 1 },
+        {
+          q: "Recycle symbol is?",
+          c: ["Triangle", "Square", "Circle", "Star"],
+          a: 0,
+        },
+        {
+          q: "Save water slogan?",
+          c: ["No rain", "Save water", "Play water", "Use more"],
+          a: 1,
+        },
+        {
+          q: "National animal of India?",
+          c: ["Lion", "Tiger", "Elephant", "Deer"],
+          a: 1,
+        },
+
+        // Quiz 6
+        {
+          q: "Plastic is?",
+          c: ["Biodegradable", "Non-biodegradable", "Renewable", "Edible"],
+          a: 1,
+        },
+        {
+          q: "Solar energy is?",
+          c: ["Conventional", "Non-renewable", "Renewable", "Fossil"],
+          a: 2,
+        },
+        {
+          q: "Tree planting is called?",
+          c: ["Deforestation", "Afforestation", "Cutting", "Pollution"],
+          a: 1,
+        },
+        {
+          q: "Harmful UV rays cause?",
+          c: ["Cancer", "Cold", "Fever", "Injury"],
+          a: 0,
+        },
+        {
+          q: "Wind energy is?",
+          c: ["Renewable", "Non-renewable", "Fossil", "Gas"],
+          a: 0,
+        },
+        { q: "Vehicle smoke has?", c: ["O2", "CO", "H2", "N2"], a: 1 },
+        {
+          q: "Hybrid cars save?",
+          c: ["Water", "Fuel", "Plastic", "Sand"],
+          a: 1,
+        },
+        {
+          q: "Greenhouse effect is?",
+          c: ["Cooling", "Warming", "Rain", "Wind"],
+          a: 1,
+        },
+        {
+          q: "Rainwater harvesting saves?",
+          c: ["Rain", "Soil", "Water", "Sand"],
+          a: 2,
+        },
+        {
+          q: "Solar panels make?",
+          c: ["Water", "Food", "Electricity", "Oxygen"],
+          a: 2,
+        },
+
+        // Quiz 7
+        {
+          q: "E-waste is?",
+          c: ["Plastic", "Old electronics", "Wood", "Glass"],
+          a: 1,
+        },
+        { q: "CFCs damage?", c: ["CO2", "Ozone", "O2", "N2"], a: 1 },
+        { q: "Battery waste has?", c: ["Iron", "Lead", "Water", "Wood"], a: 1 },
+        {
+          q: "Sound pollution unit?",
+          c: ["Decibel", "Volt", "Ampere", "Meter"],
+          a: 0,
+        },
+        {
+          q: "Noise above safe limit?",
+          c: ["80dB", "40dB", "20dB", "10dB"],
+          a: 0,
+        },
+        {
+          q: "Save trees slogan?",
+          c: ["Plant more trees", "Cut trees", "Burn trees", "Ignore"],
+          a: 0,
+        },
+        {
+          q: "Recycle paper saves?",
+          c: ["Trees", "Iron", "Water", "Sand"],
+          a: 0,
+        },
+        { q: "One tree gives?", c: ["Air", "O2", "Water", "CO2"], a: 1 },
+        {
+          q: "Earth is called?",
+          c: ["Blue planet", "Red planet", "Green planet", "Gas giant"],
+          a: 0,
+        },
+        { q: "Water covers?", c: ["50%", "71%", "30%", "90%"], a: 1 },
+
+        // Quiz 8
+        {
+          q: "Energy from moving water?",
+          c: ["Wind", "Thermal", "Hydro", "Solar"],
+          a: 2,
+        },
+        {
+          q: "Which is biodegradable?",
+          c: ["Banana peel", "Plastic", "Glass", "Metal"],
+          a: 0,
+        },
+        {
+          q: "Ozone hole over?",
+          c: ["Arctic", "Antarctica", "Africa", "Asia"],
+          a: 1,
+        },
+        {
+          q: "Deforestation causes?",
+          c: ["Rain", "Floods", "Soil erosion", "Both"],
+          a: 3,
+        },
+        {
+          q: "Recycling glass saves?",
+          c: ["Sand", "Stone", "Iron", "Gold"],
+          a: 0,
+        },
+        {
+          q: "CNG is?",
+          c: ["Clean fuel", "Dirty fuel", "Solid fuel", "Coal"],
+          a: 0,
+        },
+        {
+          q: "Lead in petrol banned because?",
+          c: ["Toxic", "Cheap", "Good", "Fast"],
+          a: 0,
+        },
+        {
+          q: "Solar cookers use?",
+          c: ["Gas", "Coal", "Sunlight", "Electricity"],
+          a: 2,
+        },
+        {
+          q: "Organic waste makes?",
+          c: ["Plastic", "Compost", "Glass", "Metal"],
+          a: 1,
+        },
+        {
+          q: "Plastic bags banned due to?",
+          c: ["Strong", "Cheap", "Pollution", "Light"],
+          a: 2,
+        },
+
+        // Quiz 9
+        {
+          q: "Mangroves found in?",
+          c: ["Mountains", "Deserts", "Coasts", "Plains"],
+          a: 2,
+        },
+        {
+          q: "Chipko movement saved?",
+          c: ["Water", "Animals", "Trees", "Land"],
+          a: 2,
+        },
+        {
+          q: "Fuel from plants?",
+          c: ["Biofuel", "Diesel", "Petrol", "Coal"],
+          a: 0,
+        },
+        {
+          q: "Excess CO2 causes?",
+          c: ["Global warming", "Cooling", "Rain", "Snow"],
+          a: 0,
+        },
+        {
+          q: "Polar bears in?",
+          c: ["Arctic", "Antarctica", "Desert", "Forest"],
+          a: 0,
+        },
+        {
+          q: "Solar cells convert?",
+          c: [
+            "Heat to Water",
+            "Light to Electricity",
+            "Water to Air",
+            "Air to Food",
+          ],
+          a: 1,
+        },
+        {
+          q: "3Rs stand for?",
+          c: [
+            "Reduce Reuse Recycle",
+            "Read Write Run",
+            "Run Rest Read",
+            "None",
+          ],
+          a: 0,
+        },
+        {
+          q: "Ecosystem includes?",
+          c: ["Only plants", "Only animals", "Living + Nonliving", "None"],
+          a: 2,
+        },
+        {
+          q: "Global warming increases?",
+          c: ["Temp", "Cold", "Snow", "Ice"],
+          a: 0,
+        },
+        {
+          q: "Tree roots prevent?",
+          c: ["Erosion", "Rain", "Sun", "Air"],
+          a: 0,
+        },
+
+        // Quiz 10
+        {
+          q: "UN climate conference is called?",
+          c: ["COP", "UNDP", "WHO", "NATO"],
+          a: 0,
+        },
+        {
+          q: "Paris Agreement year?",
+          c: ["2010", "2015", "2020", "2000"],
+          a: 1,
+        },
+        {
+          q: "Kyoto Protocol focused on?",
+          c: ["Ozone", "Carbon emissions", "Water", "Forest"],
+          a: 1,
+        },
+        {
+          q: "IPCC means?",
+          c: [
+            "International Panel on Climate Change",
+            "Intergovernmental Panel on Climate Change",
+            "Indian Pollution Control Council",
+            "None",
+          ],
+          a: 1,
+        },
+        {
+          q: "Sustainable dev means?",
+          c: [
+            "Using all resources",
+            "Saving for future",
+            "No use",
+            "Only present use",
+          ],
+          a: 1,
+        },
+        {
+          q: "Earth Summit in?",
+          c: ["Rio 1992", "Delhi 2000", "Paris 2015", "NY 2010"],
+          a: 0,
+        },
+        {
+          q: "Carbon footprint is?",
+          c: ["Area", "Emissions", "Foot size", "Population"],
+          a: 1,
+        },
+        {
+          q: "Net zero means?",
+          c: ["Zero people", "Zero emissions", "Zero forests", "Zero cars"],
+          a: 1,
+        },
+        {
+          q: "SDG 13 is?",
+          c: ["Life on land", "Climate Action", "Zero hunger", "Clean water"],
+          a: 1,
+        },
+        {
+          q: "India’s renewable goal 2030?",
+          c: ["500 GW", "50 GW", "1000 GW", "200 GW"],
+          a: 0,
+        },
+      ];
+
+      let QUIZ = [],
+        idx = 0,
+        user = {},
+        saved = {},
+        submitted = false;
+      const qcard = document.getElementById("qcard"),
+        prog = document.getElementById("prog"),
+        review = document.getElementById("review"),
+        qnav = document.getElementById("qnav");
+
+      function startQuiz(n) {
+        QUIZ = ALL.slice((n - 1) * 10, n * 10);
+        idx = 0;
+        user = {};
+        saved = {};
+        submitted = false;
+        document.getElementById("menu").style.display = "none";
+        document.getElementById("quizArea").style.display = "block";
+        review.style.display = "none";
+        render();
+      }
+      function render() {
+        const q = QUIZ[idx];
+        if (!q) return;
+        const sel = user[idx];
+        qcard.innerHTML = `<div class="question">Q${idx + 1}. ${
+          q.q
+        }</div><div class="options">${q.c
+          .map(
+            (c, ci) =>
+              `<label><input type='radio' name='opt' value='${ci}' ${
+                sel === ci ? "checked" : ""
+              } ${submitted ? "disabled" : ""}><span>${c}</span></label>`
+          )
+          .join("")}</div>`;
+        if (!submitted) {
+          qcard.querySelectorAll("input").forEach(
+            (r) =>
+              (r.onchange = (e) => {
+                user[idx] = Number(e.target.value);
+                renderNav();
+                updateProgress();
+              })
+          );
+        }
+        renderNav();
+        updateProgress();
+      }
+      function renderNav() {
+        qnav.innerHTML = "";
+        QUIZ.forEach((q, i) => {
+          const b = document.createElement("button");
+          b.className = "qbtn";
+          if (user[i] !== undefined) b.classList.add("answered");
+          else if (saved[i]) b.classList.add("saved");
+          b.textContent = i + 1;
+          b.onclick = () => {
+            idx = i;
+            render();
+          };
+          qnav.appendChild(b);
+        });
+      }
+      function updateProgress() {
+        prog.style.width = (Object.keys(user).length / QUIZ.length) * 100 + "%";
+        document.getElementById("savedBtn").style.display = Object.keys(
+          saved
+        ).some((k) => user[k] === undefined)
+          ? "inline-block"
+          : "none";
+      }
+      function prevQ() {
+        if (idx > 0) {
+          idx--;
+          render();
+        }
+      }
+      function nextQ() {
+        if (idx < QUIZ.length - 1) {
+          idx++;
+          render();
+        }
+      }
+      function saveQ() {
+        saved[idx] = true;
+        renderNav();
+        updateProgress();
+      }
+      function showSaved() {
+        const list = Object.keys(saved).filter((k) => user[k] === undefined);
+        if (list.length) {
+          idx = Number(list[0]);
+          render();
+        }
+      }
+      function submitQuiz() {
+        if (Object.keys(user).length < QUIZ.length) {
+          alert("Answer all before submitting!");
+          return;
+        }
+        submitted = true;
+        let score = 0;
+        let rows = QUIZ.map((q, i) => {
+          const ua = user[i];
+          if (ua === q.a) score++;
+          return `<tr><td>${q.q}</td><td>${q.c[ua]}</td><td>${
+            q.c[q.a]
+          }</td></tr>`;
+        }).join("");
+        review.innerHTML = `<h3>Review — Score ${score}/10</h3><table><tr><th>Question</th><th>Your Answer</th><th>Correct</th></tr>${rows}</table>`;
+        review.style.display = "block";
+      }
+      function backMenu() {
+        document.getElementById("quizArea").style.display = "none";
+        document.getElementById("menu").style.display = "grid";
+      }
+      document.getElementById("modeBtn").onclick = () => {
+        document.body.classList.toggle("dark");
+        document.getElementById("modeBtn").textContent =
+          document.body.classList.contains("dark") ? "☀ Light" : "🌙 Dark";
+      };
+    </script>
+  </body>
+</html>
