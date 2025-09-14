@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Environmental Calendar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="calender.css">
+</head>
+<body class="min-h-screen flex items-center justify-center p-4">
+    <div class="calendar">
+        <div class="header">
+            <div class="hero-image mb-4">
+                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/6886e2ab-4322-40bd-a33e-2826dd532985.png" alt="A vibrant illustration of Earth with lush green forests, flowing blue rivers, and endangered animals like pandas and eagles, surrounded by renewable energy symbols like windmills and solar panels, in a realistic watercolor style to emphasize environmental conservation" class="w-full h-48 object-cover rounded-lg"/>
+            </div>
+            <h1 class="text-3xl font-bold text-green-800 mb-4">Environmental Events Calendar</h1>
+            <div>
+                <button id="prev" class="bg-green-600 text-white px-4 py-2 rounded mr-2">Previous Month</button>
+                <span id="monthYear" class="text-xl font-semibold"></span>
+                <button id="next" class="bg-green-600 text-white px-4 py-2 rounded ml-2">Next Month</button>
+            </div>
+        </div>
+        <div class="weekdays">
+            <div>Sun</div>
+            <div>Mon</div>
+            <div>Tue</div>
+            <div>Wed</div>
+            <div>Thu</div>
+            <div>Fri</div>
+            <div>Sat</div>
+        </div>
+        <div id="days" class="days"></div>
+        <div class="event-scheduler">
+            <h2 class="text-lg font-semibold mb-3 mt-6"> New Events</h2>
+            <form id="eventForm">
+                <div class="mb-2">
+                    <label for="eventDate" class="block text-sm font-medium">Date:</label>
+                    <input type="date" id="eventDate" class="w-full p-2 border border-green-300 rounded">
+                </div>
+                <div class="mb-2">
+                    <label for="eventTitle" class="block text-sm font-medium">Title:</label>
+                    <input type="text" id="eventTitle" class="w-full p-2 border border-green-300 rounded" placeholder="e.g., Tree Planting Day">
+                </div>
+                <div class="mb-3">
+                    <label for="eventDescription" class="block text-sm font-medium">Description:</label>
+                    <textarea id="eventDescription" class="w-full p-2 border border-green-300 rounded" placeholder="Details about the event"></textarea>
+                </div>
+                <button type="submit" class="bg-green-600 text-white px-4 py-2 rounded">Add Event</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        const events = [
+            { date: new Date(2023, 3, 22), title: 'Earth Day' },
+            { date: new Date(2023, 5, 5), title: 'World Environment Day' },
+            { date: new Date(2023, 2, 20), title: 'First Day of Spring' },
+            { date: new Date(2023, 9, 31), title: 'Halloween (Trick-or-Treat for Planet)' },
+            { date: new Date(2023, 10, 24), title: 'Thanksgiving (Gratitude for Nature)' },
+            { date: new Date(2023, 11, 1), title: 'World AIDS Day (Link to Conservation)' },
+            // Add more recurring or specific events as needed
+        ];
+
+        function getCurrentDate() {
+            const now = new Date();
+            return { year: now.getFullYear(), month: now.getMonth() };
+        }
+
+        function renderCalendar(year, month) {
+            const daysContainer = document.getElementById('days');
+            daysContainer.innerHTML = '';
+            const firstDay = new Date(year, month).getDay();
+            const lastDate = new Date(year, month + 1, 0).getDate();
+            const today = new Date();
+
+            for (let i = 0; i < firstDay; i++) {
+                daysContainer.innerHTML += '<div></div>';
+            }
+
+            for (let day = 1; day <= lastDate; day++) {
+                const date = new Date(year, month, day);
+                const dayDiv = document.createElement('div');
+                dayDiv.className = 'day';
+                dayDiv.innerHTML = `<div>${day}</div>`;
+                
+                if (date.toDateString() === today.toDateString()) {
+                    dayDiv.classList.add('today');
+                }
+
+                const dayEvents = events.filter(event => event.date.toDateString() === date.toDateString());
+                if (dayEvents.length > 0) {
+                    dayDiv.classList.add('event');
+                    const eventList = document.createElement('ul');
+                    eventList.className = 'event-list';
+                    dayEvents.forEach(event => {
+                        const li = document.createElement('li');
+                        li.textContent = event.title;
+                        eventList.appendChild(li);
+                    });
+                    dayDiv.appendChild(eventList);
+                }
+
+                daysContainer.appendChild(dayDiv);
+            }
+
+            document.getElementById('monthYear').textContent = new Date(year, month).toLocaleString('default', { month: 'long', year: 'numeric' });
+        }
+
+        let { year, month } = getCurrentDate();
+        renderCalendar(year, month);
+
+        document.getElementById('prev').addEventListener('click', () => {
+            month--;
+            if (month < 0) {
+                month = 11;
+                year--;
+            }
+            renderCalendar(year, month);
+        });
+
+        document.getElementById('next').addEventListener('click', () => {
+            month++;
+            if (month > 11) {
+                month = 0;
+                year++;
+            }
+            renderCalendar(year, month);
+        });
+    </script>
+</body>
+</html>
+</content>
+</create_file>

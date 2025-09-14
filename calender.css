@@ -1,0 +1,117 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #a8e6cf, #dcedc8);
+    color: #333;
+}
+
+.calendar {
+    max-width: 800px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.weekdays div {
+    text-align: center;
+    font-weight: bold;
+    color: #2d5026;
+}
+
+.days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+}
+
+.day {
+    height: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #dcedc8;
+    border-radius: 8px;
+    background: #f7fff7;
+    position: relative;
+    cursor: pointer;
+    transition: background 0.3s;
+    overflow: visible;
+}
+
+.day:hover {
+    background: #e8f8e8;
+}
+
+/* Dot indicator for event days */
+.day.event::after {
+    content: "";
+    width: 6px;
+    height: 6px;
+    background: #ff5722;  /* Orange dot */
+    border-radius: 50%;
+    position: absolute;
+    bottom: 6px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Highlight today's date */
+.day.today {
+    background: #4a90e2;
+    color: #fff;
+}
+
+/* Tooltip for events (hidden by default) */
+.event-list {
+    display: none;
+    position: absolute;
+    bottom: 70%;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    background: #ffffff;
+    padding: 6px 10px;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    font-size: 0.8em;
+    white-space: nowrap;
+    z-index: 10;
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Show tooltip on hover */
+.day.event:hover .event-list {
+    display: block;
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+.event-list li {
+    margin: 2px 0;
+    text-align: center;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .calendar {
+        padding: 10px;
+    }
+    .day {
+        height: 50px;
+        font-size: 0.9em;
+    }
+}
