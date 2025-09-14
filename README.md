@@ -23,7 +23,7 @@ Team Members 🚀
 
 📧 Contact
 Bhavya Shah - sbhavya838@gmail.com
-Project Link: https://github.com/your-username/geenify-repo
+Project Link: [https://github.com/your-username/geenify-repo](https://bhavya092007.github.io/Greenify-Environmental-Education-Web-App/)
 
 Thank You ☺️
 Bhavya Shah.
