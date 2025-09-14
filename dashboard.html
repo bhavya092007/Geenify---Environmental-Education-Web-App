@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="logo-modified-removebg-preview.png"
+    />
+    <title>EcoLeader - Environmental Education Leaderboard</title>
+    <link rel="stylesheet" href="dashboard.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>🌿 Eco-Leader Board</h1>
+        <p>
+          Track your environmental education journey and compete with fellow
+          eco-warriors!
+        </p>
+      </header>
+
+      <div class="main-content">
+        <!-- Profile Section -->
+        <div class="profile-section">
+          <div class="user-avatar">EC</div>
+          <div class="user-info">
+            <h2>Eco Champion</h2>
+            <p>Level 8 Environmentalist</p>
+          </div>
+
+          <div class="user-stats">
+            <div class="stat-item">
+              <div class="stat-number">42</div>
+              <div class="stat-label">Lessons Completed</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">15</div>
+              <div class="stat-label">Badges Earned</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">87%</div>
+              <div class="stat-label">Overall Score</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">5</div>
+              <div class="stat-label">Friends</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Leaderboard Section -->
+        <div class="leaderboard-section">
+          <h2 class="section-title">Your Progress</h2>
+
+          <div class="streak-display">
+            <div class="streak-count">12</div>
+            <p>Day Streak! Keep going! 🔥</p>
+          </div>
+
+          <h3>Earned Badges</h3>
+          <div class="badges-grid">
+            <div class="badge earned">🌍</div>
+            <div class="badge earned">💧</div>
+            <div class="badge earned">🌱</div>
+            <div class="badge earned">♻️</div>
+            <div class="badge">🌞</div>
+            <div class="badge">🌳</div>
+          </div>
+
+          <div class="levels-progress">
+            <h3>Level Progress</h3>
+            <p>Level 8 - Advanced Environmentalist (75% Complete)</p>
+            <div class="progress-bar">
+              <div class="progress-fill"></div>
+            </div>
+            <p>Next Level: 5 more lessons</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Performance Section -->
+      <div class="performance-section">
+        <h2 class="section-title">Weekly Performance</h2>
+
+        <div class="chart-container">
+          <canvas id="performanceChart" width="300" height="300"></canvas>
+        </div>
+
+        <div class="daily-targets">
+          <div class="target-card completed">
+            <h3>Weekly Quiz</h3>
+            <p>Completed: 100%</p>
+          </div>
+          <div class="target-card completed">
+            <h3>Reading Time</h3>
+            <p>30/30 mins</p>
+          </div>
+          <div class="target-card">
+            <h3>Eco Actions</h3>
+            <p>2/3 completed</p>
+          </div>
+          <div class="target-card">
+            <h3>Community</h3>
+            <p>1/2 interactions</p>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <p>🌱 Making the world greener, one lesson at a time</p>
+        <p>Small Changes, Big Impacts</p>
+        <p>© 2025 Greenify Environmental Education Platform</p>
+      </footer>
+    </div>
+
+    <script src="dashboard.js"></script>
+  </body>
+</html>
