@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Environmental Awareness</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/lucide-static@0.263.1/font/lucide.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              green: {
+                50: "#f0fdf4",
+                100: "#dcfce7",
+                200: "#bbf7d0",
+                300: "#86efac",
+                400: "#4ade80",
+                500: "#22c55e",
+                600: "#16a34a",
+                700: "#15803d",
+                800: "#166534",
+                900: "#14532d",
+              },
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+      body {
+        font-family: "Inter", sans-serif;
+      }
+      .tab-button.active {
+        font-weight: 600;
+      }
+      .progress-bar {
+        transition: width 0.5s ease-in-out;
+      }
+      .file-upload-area {
+        transition: border-color 0.3s, background-color 0.3s;
+      }
+      .dark-mode {
+        background-color: #111827;
+        color: #f3f4f6;
+      }
+      .light-mode {
+        background: linear-gradient(135deg, #f0fdf4 0%, #dbeafe 100%);
+        color: #1f2937;
+      }
+    </style>
+  </head>
+  <body class="light-mode">
+    <div class="min-h-screen p-6">
+      <div class="max-w-6xl mx-auto">
+        <!-- Header -->
+        <header
+          class="flex flex-col md:flex-row justify-between items-center mb-12"
+        >
+          <!-- Left Logo + Title -->
+          <div class="flex items-center mb-4 md:mb-0">
+            <i
+              class="lucide lucide-leaf text-5xl mr-3 text-green-600 dark:text-green-400"
+            ></i>
+            <h1 class="text-4xl font-bold text-green-800 dark:text-green-300">
+              Environmental Awareness
+            </h1>
+          </div>
+
+          <!-- Buttons (Back + Dark Mode) -->
+          <div class="flex flex-col sm:flex-row gap-3">
+            <!-- Back Button -->
+            <a href="homepage2.html">
+              <button
+                class="flex items-center px-4 py-2 rounded-full bg-gray-200 text-gray-800 hover:bg-gray-300 dark:bg-gray-700 dark:text-white dark:hover:bg-gray-600 transition-all w-full sm:w-auto"
+              >
+                ⬅ Back
+              </button>
+            </a>
+
+            <!-- Dark Mode Button -->
+            <button
+              id="themeToggle"
+              class="flex items-center px-4 py-2 rounded-full transition-all bg-green-200 text-green-800 hover:bg-green-300 dark:bg-gray-700 dark:text-yellow-300 dark:hover:bg-gray-600 w-full sm:w-auto"
+            >
+              <i class="lucide lucide-moon mr-2"></i>
+              <span>Dark Mode</span>
+            </button>
+          </div>
+        </header>
+
+        <p
+          class="text-lg mb-10 text-center max-w-2xl mx-auto text-gray-600 dark:text-gray-300"
+        >
+          Learn how small changes in our daily lives can make a big impact on
+          our planet's future
+        </p>
+
+        <!-- Navigation Tabs -->
+        <div class="flex flex-wrap justify-center gap-2 mb-10">
+          <button
+            data-tab="climate"
+            class="tab-button flex items-center px-6 py-3 rounded-full transition-all bg-green-600 text-white shadow-lg"
+          >
+            <i class="lucide lucide-cloud-rain mr-2"></i> Climate Change
+          </button>
+          <button
+            data-tab="biodiversity"
+            class="tab-button flex items-center px-6 py-3 rounded-full transition-all bg-white text-green-700 border border-green-200 hover:bg-green-50 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-600"
+          >
+            <i class="lucide lucide-tree-pine mr-2"></i> Biodiversity
+          </button>
+          <button
+            data-tab="sustainability"
+            class="tab-button flex items-center px-6 py-3 rounded-full transition-all bg-white text-green-700 border border-green-200 hover:bg-green-50 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-600"
+          >
+            <i class="lucide lucide-recycle mr-2"></i> Sustainability
+          </button>
+          <button
+            data-tab="energy"
+            class="tab-button flex items-center px-6 py-3 rounded-full transition-all bg-white text-green-700 border border-green-200 hover:bg-green-50 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-600"
+          >
+            <i class="lucide lucide-sun mr-2"></i> Renewable Energy
+          </button>
+        </div>
+
+        <!-- Main Content Grid -->
+        <div class="grid md:grid-cols-2 gap-8 mb-12">
+          <!-- Left Column -->
+          <div class="rounded-2xl shadow-lg p-8 bg-white dark:bg-gray-800">
+            <h2
+              class="text-2xl font-semibold mb-6 text-green-800 dark:text-green-300"
+              id="tabTitle"
+            >
+              Understanding Climate Change
+            </h2>
+            <div class="space-y-6">
+              <div class="p-4 rounded-xl bg-green-50 dark:bg-gray-700">
+                <h3
+                  class="font-semibold mb-2 text-green-700 dark:text-green-300"
+                >
+                  Key Facts
+                </h3>
+                <p class="text-green-800 dark:text-gray-200" id="keyFacts">
+                  Global temperatures have risen by 1.1°C since the late 1800s,
+                  primarily due to human activities.
+                </p>
+              </div>
+              <div class="p-4 rounded-xl bg-blue-50 dark:bg-blue-900">
+                <h3 class="font-semibold mb-2 text-blue-700 dark:text-blue-300">
+                  What You Can Do
+                </h3>
+                <ul
+                  class="list-disc list-inside space-y-2 text-blue-800 dark:text-blue-200"
+                  id="actionItems"
+                >
+                  <li>
+                    Reduce your carbon footprint by using public transportation
+                  </li>
+                  <li>Conserve energy at home with efficient appliances</li>
+                  <li>Support policies that address climate change</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column -->
+          <div class="space-y-6">
+            <a href="module3.html">
+              <div
+                class="rounded-2xl shadow-lg overflow-hidden bg-white dark:bg-gray-800"
+              >
+                <img
+                  src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1000&q=80"
+                  alt="Forest"
+                  class="w-full h-64 object-cover"
+                />
+                <!-- Centered Button -->
+                <div class="flex justify-center my-4">
+                  <button
+                    class="px-6 py-3 rounded-full bg-green-600 text-white font-bold hover:bg-green-700 transition"
+                  >
+                    Modules and Visualizations
+                  </button>
+                </div>
+                <div class="p-6">
+                  <p class="text-gray-600 dark:text-gray-300">
+                    This visualization shows the positive effects of
+                    conservation efforts on natural habitats and biodiversity.
+                  </p>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Full Width Progress Trackers -->
+      <div class="w-full bg-gray-100 dark:bg-gray-900 py-12">
+        <div class="max-w-full mx-auto px-6">
+          <div
+            class="w-full rounded-2xl shadow-lg p-6 bg-white dark:bg-gray-800"
+          >
+            <h3
+              class="text-xl font-semibold mb-4 text-green-800 dark:text-green-300"
+            >
+              Environmental Progress
+            </h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div>
+                <div class="flex justify-between mb-1">
+                  <span
+                    class="text-sm font-medium text-green-700 dark:text-green-300"
+                  >
+                    Carbon Reduction
+                  </span>
+                  <span
+                    class="text-sm font-medium text-green-700 dark:text-green-300"
+                  >
+                    65%
+                  </span>
+                </div>
+                <div
+                  class="w-full rounded-full h-2.5 bg-green-100 dark:bg-gray-700"
+                >
+                  <div
+                    class="progress-bar bg-green-600 h-2.5 rounded-full"
+                    style="width: 65%"
+                  ></div>
+                </div>
+              </div>
+              <div>
+                <div class="flex justify-between mb-1">
+                  <span
+                    class="text-sm font-medium text-blue-700 dark:text-blue-300"
+                  >
+                    Renewable Energy
+                  </span>
+                  <span
+                    class="text-sm font-medium text-blue-700 dark:text-blue-300"
+                  >
+                    42%
+                  </span>
+                </div>
+                <div
+                  class="w-full rounded-full h-2.5 bg-blue-100 dark:bg-gray-700"
+                >
+                  <div
+                    class="progress-bar bg-blue-600 h-2.5 rounded-full"
+                    style="width: 42%"
+                  ></div>
+                </div>
+              </div>
+              <div>
+                <div class="flex justify-between mb-1">
+                  <span
+                    class="text-sm font-medium text-teal-700 dark:text-teal-300"
+                  >
+                    Waste Reduction
+                  </span>
+                  <span
+                    class="text-sm font-medium text-teal-700 dark:text-teal-300"
+                  >
+                    78%
+                  </span>
+                </div>
+                <div
+                  class="w-full rounded-full h-2.5 bg-teal-100 dark:bg-gray-700"
+                >
+                  <div
+                    class="progress-bar bg-teal-600 h-2.5 rounded-full"
+                    style="width: 78%"
+                  ></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer class="text-center mt-12 text-gray-600 dark:text-gray-400">
+        <p>
+          © 2025 Environmental Awareness Initiative. Together for a sustinable
+          future.
+        </p>
+      </footer>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const body = document.body;
+        const themeToggle = document.getElementById("themeToggle");
+        const tabButtons = document.querySelectorAll(".tab-button");
+        const tabTitle = document.getElementById("tabTitle");
+        const keyFacts = document.getElementById("keyFacts");
+        const actionItems = document.getElementById("actionItems");
+
+        // Tab content
+        const tabContent = {
+          climate: {
+            title: "Understanding Climate Change",
+            facts:
+              "Global temperatures have risen by 1.1°C since the late 1800s, primarily due to human activities.",
+            actions: `
+            <li>Reduce your carbon footprint by using public transportation</li>
+            <li>Conserve energy at home with efficient appliances</li>
+            <li>Support policies that address climate change</li>`,
+          },
+          biodiversity: {
+            title: "Protecting Biodiversity",
+            facts:
+              "Over 1 million species are at risk of extinction due to human activities and climate change.",
+            actions: `
+            <li>Plant native species in your garden</li>
+            <li>Reduce pesticide use</li>
+            <li>Support conservation organizations</li>`,
+          },
+          sustainability: {
+            title: "Sustainable Living",
+            facts:
+              "The average person generates 4.4 pounds of waste per day, much of which ends up in landfills.",
+            actions: `
+            <li>Reduce, reuse, and recycle products</li>
+            <li>Choose sustainable and local products</li>
+            <li>Minimize single-use plastics</li>`,
+          },
+          energy: {
+            title: "Renewable Energy Solutions",
+            facts:
+              "Renewable energy could provide 65% of the world's electricity by 2030 with proper investment.",
+            actions: `
+            <li>Install solar panels if possible</li>
+            <li>Choose energy-efficient appliances</li>
+            <li>Support renewable energy initiatives</li>`,
+          },
+        };
+
+        // Tab switching
+        tabButtons.forEach((button) => {
+          button.addEventListener("click", function () {
+            const tabId = this.getAttribute("data-tab");
+
+            // Reset all buttons
+            tabButtons.forEach((btn) =>
+              btn.classList.remove(
+                "active",
+                "bg-green-600",
+                "text-white",
+                "shadow-lg"
+              )
+            );
+            tabButtons.forEach((btn) =>
+              btn.classList.add(
+                "bg-white",
+                "text-green-700",
+                "border",
+                "border-green-200"
+              )
+            );
+
+            // Activate clicked button
+            this.classList.remove(
+              "bg-white",
+              "text-green-700",
+              "border",
+              "border-green-200"
+            );
+            this.classList.add(
+              "active",
+              "bg-green-600",
+              "text-white",
+              "shadow-lg"
+            );
+
+            // Update content
+            tabTitle.textContent = tabContent[tabId].title;
+            keyFacts.textContent = tabContent[tabId].facts;
+            actionItems.innerHTML = tabContent[tabId].actions;
+          });
+        });
+
+        // Theme toggle
+        themeToggle.addEventListener("click", function () {
+          if (body.classList.contains("light-mode")) {
+            body.classList.replace("light-mode", "dark-mode");
+            themeToggle.innerHTML =
+              '<i class="lucide lucide-sun mr-2"></i><span>Light Mode</span>';
+          } else {
+            body.classList.replace("dark-mode", "light-mode");
+            themeToggle.innerHTML =
+              '<i class="lucide lucide-moon mr-2"></i><span>Dark Mode</span>';
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
+
