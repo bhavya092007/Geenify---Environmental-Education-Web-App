@@ -17,11 +17,12 @@
     />
     <link rel="stylesheet" href="homepage.css" />
   </head>
-  <body class="bg-gray-900 text-white">
+  <body class="bg-green-50 text-gray-900">
     <div class="relative flex size-full min-h-screen">
+      <!-- Sidebar -->
       <aside
         id="sidebar"
-        class="sidebar fixed top-0 left-0 h-screen bg-gray-800/90 backdrop-blur-sm border-r border-gray-700 w-64 flex flex-col -translate-x-full md:translate-x-0 transition-transform duration-300 pl-6 md:pl-12 z-40"
+        class="sidebar fixed top-0 left-0 h-screen bg-green-100/90 backdrop-blur-sm border-r border-green-200 w-64 flex flex-col -translate-x-full md:translate-x-0 transition-transform duration-300 pl-6 md:pl-12 z-40"
       >
         <div class="p-4 flex items-center gap-2">
           <img
@@ -29,48 +30,50 @@
             alt="Logo"
             class="h-10 w-10 rounded-lg"
           />
-          <h1 class="text-xl font-bold">Greenify</h1>
+          <h1 class="text-xl font-bold text-green-700">Greenify</h1>
         </div>
 
+        <!-- Menu -->
         <nav class="flex-1 py-2">
           <a
             href="#"
-            class="menu-item block py-2 px-3 rounded hover:bg-gray-700 transition"
+            class="menu-item block py-2 px-3 rounded hover:bg-green-200 transition"
             data-page="activities"
             >Activities 🎭</a
           >
           <a
             href="games.html"
-            class="menu-item block py-2 px-3 rounded hover:bg-gray-700 transition"
+            class="menu-item block py-2 px-3 rounded hover:bg-green-200 transition"
             >Games 🎮</a
           >
           <a
             href="quiz.html"
-            class="menu-item block py-2 px-3 rounded hover:bg-gray-700 transition"
+            class="menu-item block py-2 px-3 rounded hover:bg-green-200 transition"
             >Quizzes 🧩</a
           >
           <a
             href="leaderboard.html"
-            class="menu-item block py-2 px-3 rounded hover:bg-gray-700 transition"
+            class="menu-item block py-2 px-3 rounded hover:bg-green-200 transition"
             >Leaderboard 🛹</a
           >
           <a
             href="news.html"
-            class="menu-item block py-2 px-3 rounded hover:bg-gray-700 transition"
+            class="menu-item block py-2 px-3 rounded hover:bg-green-200 transition"
             >News 📰</a
           >
           <a
             href="modules.html"
-            class="menu-item block py-2 px-3 rounded hover:bg-gray-700 transition"
+            class="menu-item block py-2 px-3 rounded hover:bg-green-200 transition"
             >Modules 📑</a
           >
           <a
-            href="calendar.html"
-            class="menu-item block py-2 px-3 rounded hover:bg-gray-700 transition"
-            >Calendar 🗓️</a
+            href="calender.html"
+            class="menu-item block py-2 px-3 rounded hover:bg-green-200 transition"
+            >Calender 🗓️</a
           >
         </nav>
 
+        <!-- Back to Index Button -->
         <div
           class="absolute bottom-6 left-1/2 transform -translate-x-1/2 w-11/12"
         >
@@ -83,28 +86,31 @@
         </div>
       </aside>
 
+      <!-- Main Content -->
       <div
         id="main"
         class="flex-grow ml-0 md:ml-64 transition-all duration-300 p-4 sm:p-6 md:p-8"
       >
+        <!-- Header -->
         <header
           class="flex flex-col sm:flex-row gap-4 sm:gap-0 sm:justify-between sm:items-center mb-6 sm:mb-8 relative z-50"
         >
           <div class="flex items-center justify-between w-full sm:w-auto">
             <button
-              class="menu-toggle bg-gray-800 text-white p-2 rounded md:hidden"
+              class="menu-toggle bg-green-200 text-green-900 p-2 rounded md:hidden"
             >
-              ☰
+              ☰ Menu
             </button>
-            <h1 id="pageTitle" class="text-2xl sm:text-3xl font-bold ml-2">
-              Welcome
-            </h1>
+            <h1
+              id="pageTitle"
+              class="text-2xl sm:text-3xl font-bold ml-2 text-green-800"
+            ></h1>
           </div>
 
           <div class="relative">
             <button
               id="dropdownBtn"
-              class="flex items-center gap-2 bg-gray-800 px-3 py-2 rounded-lg hover:bg-gray-700"
+              class="flex items-center gap-2 bg-green-200 px-3 py-2 rounded-lg hover:bg-green-300 text-green-900"
             >
               <img
                 src="https://i.pravatar.cc/40"
@@ -117,114 +123,130 @@
 
             <div
               id="dropdownMenu"
-              class="absolute right-0 mt-2 w-48 bg-gray-800 text-white rounded-lg shadow-lg hidden z-50"
+              class="absolute right-0 mt-2 w-48 bg-green-100 text-green-900 rounded-lg shadow-lg hidden z-50"
             >
-              <a href="dashboard.html" class="block px-4 py-2 hover:bg-gray-700"
+              <a
+                href="dashboard.html"
+                class="block px-4 py-2 hover:bg-green-200"
                 >Profile</a
               >
               <a
                 href="helpandsupport.html"
-                class="block px-4 py-2 hover:bg-gray-700"
+                class="block px-4 py-2 hover:bg-green-200"
                 >Help & Support</a
               >
-              <a href="#" class="block px-4 py-2 hover:bg-gray-700">Logout</a>
+              <a href="#" class="block px-4 py-2 hover:bg-green-200">Logout</a>
             </div>
           </div>
         </header>
 
+        <!-- Center Fixed Box -->
         <div
           id="centerBox"
-          class="bg-gray-800 p-6 rounded-2xl shadow-md min-h-[60vh] flex flex-col items-center justify-center text-gray-400"
+          class="bg-green-100 p-6 rounded-2xl shadow-md min-h-[60vh] flex flex-col items-center justify-center text-green-700"
         >
           <div
-            class="flex flex-col items-center justify-center text-center p-8 h-full relative overflow-hidden"
+            id="centerBox"
+            class="bg-gray-800 p-6 rounded-2xl shadow-md min-h-[60vh] flex flex-col items-center justify-center text-gray-400"
           >
             <div
-              class="absolute inset-0 bg-gradient-to-br from-green-800/20 via-transparent to-blue-800/20 animate-gradient"
-            ></div>
-
-            <div
-              class="bg-white/10 backdrop-blur-md rounded-2xl shadow-xl p-8 max-w-xl w-full border border-white/20 relative z-10"
+              class="flex flex-col items-center justify-center text-center p-8 h-full relative overflow-hidden"
             >
-              <div id="streakBadge" class="streak-badge mb-4">
-                🔥 Daily Streak: <span id="streakCount">1</span> days
-              </div>
+              <!-- Background -->
+              <div
+                class="absolute inset-0 bg-gradient-to-br from-green-800/20 via-transparent to-blue- animate-gradient"
+              ></div>
 
-              <h2 class="text-3xl font-extrabold text-green-300 drop-shadow-lg">
-                👋 Welcome, Jane!
-              </h2>
-              <p class="mt-2 text-gray-300">
-                Ready for your next step in
-                <span class="text-green-200 font-semibold">Greenify</span> 🌍
-              </p>
+              <!-- Glassmorphism Card -->
+              <div
+                class="bg-white/10 backdrop-blur-md rounded-2xl shadow-xl p-8 max-w-xl w-full border border-white/20 relative z-10"
+              >
+                <!-- Streak Badge -->
+                <div id="streakBadge" class="streak-badge mb-4">
+                  🔥 Daily Streak: <span id="streakCount">1</span> days
+                </div>
 
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 mt-8">
-                <div class="flex flex-col items-center">
-                  <div class="scene">
-                    <div id="factBox" class="cube">
-                      <div class="face front">🌍</div>
-                      <div class="face back">🌱</div>
-                      <div class="face right">☀️</div>
-                      <div class="face left">💧</div>
-                      <div class="face top">🐝</div>
-                      <div class="face bottom">🌳</div>
+                <h2
+                  class="text-3xl font-extrabold text-green-300 drop-shadow-lg"
+                >
+                  👋 Welcome, Jane!
+                </h2>
+                <p class="mt-2 text-gray-300">
+                  Ready for your next step in
+                  <span class="text-green-200 font-semibold">Greenify</span> 🌍
+                </p>
+
+                <!-- Boxes Section -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 mt-8">
+                  <!-- Fact Box -->
+                  <div class="flex flex-col items-center">
+                    <div class="scene">
+                      <div id="factBox" class="cube">
+                        <div class="face front">🌍</div>
+                        <div class="face back">🌱</div>
+                        <div class="face right">☀️</div>
+                        <div class="face left">💧</div>
+                        <div class="face top">🐝</div>
+                        <div class="face bottom">🌳</div>
+                      </div>
+                    </div>
+                    <p class="text-xs text-gray-300 mt-2">
+                      Click to reveal Fact 🔷
+                    </p>
+                    <div
+                      id="factCard"
+                      class="mt-4 bg-cyan-900/40 border border-cyan-500/30 rounded-xl p-4 text-left hidden w-full"
+                    >
+                      <p class="text-sm text-cyan-300 font-semibold">
+                        🔷 Eco Fact
+                      </p>
+                      <p id="ecoFact" class="text-gray-300 text-sm mt-1"></p>
                     </div>
                   </div>
-                  <p class="text-xs text-gray-300 mt-2">
-                    Click to reveal Fact 🔷
-                  </p>
-                  <div
-                    id="factCard"
-                    class="mt-4 bg-cyan-900/40 border border-cyan-500/30 rounded-xl p-4 text-left hidden w-full"
-                  >
-                    <p class="text-sm text-cyan-300 font-semibold">
-                      🔷 Eco Fact
+
+                  <!-- Challenge Box -->
+                  <div class="flex flex-col items-center">
+                    <div class="scene">
+                      <div id="challengeBox" class="cube challenge">
+                        <div class="face front">💡</div>
+                        <div class="face back">🚶</div>
+                        <div class="face right">♻️</div>
+                        <div class="face left">🍲</div>
+                        <div class="face top">🔌</div>
+                        <div class="face bottom">🌿</div>
+                      </div>
+                    </div>
+                    <p class="text-xs text-gray-300 mt-2">
+                      Click to reveal Challenge 🟩
                     </p>
-                    <p id="ecoFact" class="text-gray-300 text-sm mt-1"></p>
+                    <div
+                      id="challengeCard"
+                      class="mt-4 bg-green-900/40 border border-green-500/30 rounded-xl p-4 text-left hidden w-full"
+                    >
+                      <p class="text-sm text-green-300 font-semibold">
+                        🟩 Eco Challenge
+                      </p>
+                      <p
+                        id="ecoChallenge"
+                        class="text-gray-300 text-sm mt-1"
+                      ></p>
+                    </div>
                   </div>
                 </div>
 
-                <div class="flex flex-col items-center">
-                  <div class="scene">
-                    <div id="challengeBox" class="cube challenge">
-                      <div class="face front">💡</div>
-                      <div class="face back">🚶</div>
-                      <div class="face right">♻️</div>
-                      <div class="face left">🍲</div>
-                      <div class="face top">🔌</div>
-                      <div class="face bottom">🌿</div>
-                    </div>
-                  </div>
-                  <p class="text-xs text-gray-300 mt-2">
-                    Click to reveal Challenge 🟩
-                  </p>
-                  <div
-                    id="challengeCard"
-                    class="mt-4 bg-green-900/40 border border-green-500/30 rounded-xl p-4 text-left hidden w-full"
-                  >
-                    <p class="text-sm text-green-300 font-semibold">
-                      🟩 Eco Challenge
-                    </p>
-                    <p
-                      id="ecoChallenge"
-                      class="text-gray-300 text-sm mt-1"
-                    ></p>
-                  </div>
-                </div>
+                <!-- Footer -->
+                <p class="mt-8 text-sm text-gray-400 italic">
+                  "Small steps today, a greener tomorrow." 🌍💚
+                </p>
               </div>
-
-              <p class="mt-8 text-sm text-gray-400 italic">
-                "Small steps today, a greener tomorrow." 🌍💚
-              </p>
             </div>
           </div>
-          <span class="text-lg">Select an option from the menu</span>
         </div>
       </div>
     </div>
 
+    <!-- JavaScript -->
     <script>
-      // All scripts from original file go here
       const ecoFacts = [
         "Trees absorb CO₂ and provide oxygen 🌳",
         "Bees pollinate 1/3 of the food we eat 🐝",
@@ -256,12 +278,11 @@
       let streakIncreased = false;
 
       if (lastVisit === todayStr) {
-        // Already visited today, do nothing
       } else if (lastVisit === yesterdayStr) {
-        streak += 1; // Continue streak
+        streak += 1;
         streakIncreased = true;
       } else {
-        streak = 1; // Reset streak
+        streak = 1;
         streakIncreased = true;
       }
 
@@ -311,7 +332,7 @@
         }, 2000);
       });
 
-      // --- Sidebar Toggle Script ---
+      // Sidebar Toggle
       const menuBtn = document.querySelector(".menu-toggle");
       const sidebar = document.getElementById("sidebar");
       const main = document.getElementById("main");
@@ -333,7 +354,7 @@
         }
       });
 
-      // --- Dropdown Script ---
+      // Dropdown Script
       const dropdownBtn = document.getElementById("dropdownBtn");
       const dropdownMenu = document.getElementById("dropdownMenu");
 
@@ -351,7 +372,7 @@
         }
       });
 
-      // --- Menu Item Click Script ---
+      // Menu Item Click
       const centerBox = document.getElementById("centerBox");
       const pageTitle = document.getElementById("pageTitle");
       const menuItems = document.querySelectorAll(".menu-item");
@@ -408,37 +429,40 @@
       ];
 
       function renderActivities() {
-        let html = `<h2 class="text-2xl font-semibold mb-4 text-white">🌍 Environmental Activities</h2>
-          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 w-full">`;
+        let html = `<h2 class="text-2xl font-semibold mb-4 black-white">🌍 Environmental Activities</h2>
+              <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 w-full">`;
 
         activitiesData.forEach((activity) => {
           html += `
-            <div class="bg-white text-black p-6 rounded-2xl shadow-md flex flex-col justify-between">
-              <div>
-                <h3 class="text-xl font-bold mb-2 flex items-center gap-2">
-                  ${activity.title} <span class="text-orange-500">${
+      <div class="bg-white text-black p-6 rounded-2xl shadow-md flex flex-col justify-between">
+        <div>
+          <h3 class="text-xl font-bold mb-2 flex items-center gap-2">
+            ${activity.title} <span class="text-orange-500">${
             activity.points
           }</span>
-                </h3>
-                <p class="mb-4">${activity.description}</p>
-                <div class="flex gap-2 mb-2">
-                  ${activity.tags
-                    .map(
-                      (tag) =>
-                        `<span class="bg-green-500 text-white text-xs px-2 py-1 rounded-full">${tag}</span>`
-                    )
-                    .join("")}
-                </div>
-                <div class="flex justify-between text-gray-500 text-sm">
-                  <span>⏱ ${activity.time}</span>
-                  <span>👥 ${activity.participants}</span>
-                </div>
-              </div>
-              <button class="mt-4 bg-black text-white py-2 px-3 rounded-lg font-semibold text-sm sm:text-base">
-                Start Activity
-              </button>
-            </div>
-          `;
+          </h3>
+          <p class="mb-4">${activity.description}</p>
+          <div class="flex gap-2 mb-2">
+            ${activity.tags
+              .map(
+                (tag) =>
+                  `<span class="bg-green-500 text-white text-xs px-2 py-1 rounded-full">${tag}</span>`
+              )
+              .join("")}
+          </div>
+          <div class="flex justify-between text-gray-500 text-sm">
+            <span>⏱ ${activity.time}</span>
+            <span>👥 ${activity.participants}</span>
+          </div>
+        </div>
+       <button 
+  class="mt-4 bg-black text-white py-2 px-3 rounded-lg font-semibold text-sm sm:text-base" 
+  onclick="window.location.href='startpage.html'">
+  Start Activity
+</button>
+
+      </div>
+    `;
         });
 
         html += `</div>`;
@@ -448,6 +472,7 @@
       menuItems.forEach((item) => {
         item.addEventListener("click", (e) => {
           const page = item.getAttribute("data-page");
+
           if (page === "activities") {
             e.preventDefault();
             pageTitle.textContent = item.textContent;
@@ -457,6 +482,7 @@
       });
 
       const sidebarLinks = document.querySelectorAll("#sidebar .menu-item");
+
       sidebarLinks.forEach((link) => {
         link.addEventListener("click", () => {
           if (window.innerWidth < 768) {
@@ -468,3 +494,4 @@
     </script>
   </body>
 </html>
+
