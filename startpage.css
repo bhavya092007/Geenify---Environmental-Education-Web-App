@@ -1,0 +1,144 @@
+/* General styles */
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background: #f0fdf4;
+  color: #064e3b;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+/* Container */
+.activity-container {
+  width: 100%;
+  max-width: 800px;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 30px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+header h1 {
+  color: #166534;
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.back-btn {
+  text-decoration: none;
+  background: #16a34a;
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 10px;
+  transition: background 0.3s ease;
+}
+
+.back-btn:hover {
+  background: #15803d;
+}
+
+/* Activity Card */
+.activity-card {
+  background: #ecfdf5;
+  border-radius: 14px;
+  padding: 20px;
+}
+
+.activity-title {
+  font-size: 1.6rem;
+  margin-bottom: 10px;
+  color: #065f46;
+}
+
+.activity-desc {
+  font-size: 1rem;
+  margin-bottom: 15px;
+}
+
+/* Tags & Info */
+.activity-info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.tag {
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: #fff;
+}
+
+.tag.beginner {
+  background: #10b981;
+}
+.tag.challenge {
+  background: #059669;
+}
+
+.time {
+  font-size: 0.9rem;
+  color: #444;
+}
+
+.points {
+  font-weight: bold;
+  color: #eab308;
+}
+
+/* Instructions */
+.instructions h3 {
+  margin-top: 0;
+  color: #166534;
+}
+
+.instructions ol {
+  margin: 10px 0 20px;
+  padding-left: 20px;
+}
+
+.instructions li {
+  margin-bottom: 8px;
+}
+
+/* Upload */
+.upload-section {
+  margin-bottom: 20px;
+}
+
+.upload-section input {
+  display: block;
+  margin-top: 8px;
+}
+
+/* Complete Button */
+.complete-btn {
+  width: 100%;
+  padding: 12px;
+  background: #16a34a;
+  color: white;
+  font-size: 1rem;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.complete-btn:hover {
+  background: #15803d;
+}
+
