@@ -1,14 +1,8 @@
 /* Background animation */
 @keyframes gradient {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 .animate-gradient {
@@ -53,24 +47,12 @@
 }
 
 /* Position faces */
-.front {
-  transform: rotateY(0deg) translateZ(50px);
-}
-.back {
-  transform: rotateY(180deg) translateZ(50px);
-}
-.right {
-  transform: rotateY(90deg) translateZ(50px);
-}
-.left {
-  transform: rotateY(-90deg) translateZ(50px);
-}
-.top {
-  transform: rotateX(90deg) translateZ(50px);
-}
-.bottom {
-  transform: rotateX(-90deg) translateZ(50px);
-}
+.front { transform: rotateY(0deg) translateZ(50px); }
+.back { transform: rotateY(180deg) translateZ(50px); }
+.right { transform: rotateY(90deg) translateZ(50px); }
+.left { transform: rotateY(-90deg) translateZ(50px); }
+.top { transform: rotateX(90deg) translateZ(50px); }
+.bottom { transform: rotateX(-90deg) translateZ(50px); }
 
 /* Streak Badge */
 .streak-badge {
@@ -87,12 +69,8 @@
 
 /* Gentle pulse animation */
 @keyframes pulse {
-  0% {
-    transform: scale(1);
-  }
-  100% {
-    transform: scale(1.05);
-  }
+  0% { transform: scale(1); }
+  100% { transform: scale(1.05); }
 }
 
 /* Glow animation when streak increases */
@@ -114,3 +92,4 @@
     transform: scale(1);
   }
 }
+
