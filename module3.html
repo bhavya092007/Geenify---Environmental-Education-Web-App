@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect" />
+    <link as="style"
+        href="https://fonts.googleapis.com/css2?display=swap&amp;family=Lexend%3Awght%40400%3B500%3B700%3B900&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900"
+        onload="this.rel='stylesheet'" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <title>EcoLearn - Environmental Studies</title>
+    <link href="data:image/x-icon;base64," rel="icon" type="image/x-icon" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <style type="text/tailwindcss">
+        :root {
+            --primary-color: #17cf17;
+        }
+    </style>
+</head>
+
+<body class="bg-[#F7F9F7]">
+    <div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden"
+        style='font-family: Lexend, "Noto Sans", sans-serif;'>
+        <div class="layout-container flex h-full grow flex-col">
+            <header
+                class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#e0e7e0] px-10 py-4">
+                <div class="flex items-center gap-3 text-[#111811]">
+                    <img src="images/logo-modified.png" alt="Greenify Logo" class="h-10 w-10 rounded-lg" />
+                    <h2 class="text-[#111811] text-xl font-bold leading-tight tracking-[-0.015em]">Greenify</h2>
+                </div>
+
+                <!-- 👇 This nav is hidden on mobile, shown only on md+ -->
+                <div class="hidden md:flex flex-1 justify-center gap-12 text-[#374137]">
+                    <a class="text-base font-medium leading-normal hover:text-[var(--primary-color)] transition-colors"
+                        href="homepage.html"> Home</a>
+                    <a class="text-base font-medium leading-normal text-[var(--primary-color)]" href="#">Modules</a>
+                </div>
+                <!-- Back Button -->
+                <a href="modulecontent2.HTML">
+                    <button
+                        class="flex items-center px-4 py-2 rounded-full bg-gray-200 text-gray-800 hover:bg-gray-300 dark:bg-gray-700 dark:text-white dark:hover:bg-gray-600 transition-all w-full sm:w-auto">
+                        ⬅ Back
+                    </button>
+                </a>
+
+                <div class="flex items-center gap-4">
+                    <button
+                        class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 w-10 bg-transparent text-[#374137] hover:bg-[#eef3ee] transition-colors">
+                        <span class="material-symbols-outlined">
+                            notifications
+                        </span>
+                    </button>
+                    <a href="dashboard.html">
+                        <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10"
+                            style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCYfMTj8o7WOXq-lS2FvzwUiCRCJNmpwiG2XZqhQf7ERpNCZV4gIoCNLDtL2Lr7rBclKZtZTHiGOvCTHY62OXsRhLnGeBer2KwP4_6phx1KTVGwDYioMaICqkq3rJHo4OmdzrFZ86WOckGgEYBUMihIG_ZTPowhHTrfYRULniAW5OUJ8hmSrN3CwH3sVy1DTtpfkc8jB0y25I-9uNoz6oxfVuJ6PTpM0CJjCA-Oi5PyiLLI9QbbbOEgxNo8DKX_EqAShIMAekNqju8");'>
+                        </div>
+                    </a>
+
+                    <!-- Hamburger (Mobile only) -->
+                    <button id="menu-btn"
+                        class="md:hidden flex items-center justify-center rounded-md p-2 text-[#374137] hover:bg-[#eef3ee]">
+                        <span class="material-symbols-outlined">menu</span>
+                    </button>
+                </div>
+            </header>
+
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden flex-col bg-white border-b border-[#e0e7e0] px-6 py-4">
+                <a href="homepage.html"
+                    class="block py-2 text-[#374137] font-medium hover:text-[var(--primary-color)]">Home</a>
+                <a href="#" class="block py-2 text-[var(--primary-color)] font-medium">Modules</a>
+            </div>
+
+            <div class="px-10 md:px-20 lg:px-40 flex flex-1 justify-center py-12">
+                <div class="layout-content-container flex flex-col max-w-6xl flex-1">
+                    <div class="flex flex-wrap justify-between items-center gap-6 p-4 mb-8">
+                        <div class="flex flex-col gap-2">
+                            <h1 class="text-4xl font-bold text-[#111811]">Environmental Studies Modules</h1>
+                            <p class="text-[#4A554A]">Explore, learn, and contribute to a greener planet.</p>
+                        </div>
+                    </div>
+
+                    <a href="pdf/Water-Pollution-in-India-A-Crisis-Threatening-Millions (1).pdf">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 p-4">
+                            <div
+                                class="flex flex-col gap-4 rounded-lg bg-white shadow-sm hover:shadow-lg transition-shadow duration-300 overflow-hidden group">
+                                <div class="w-full h-48 bg-center bg-no-repeat bg-cover"
+                                    style='background-image: url("images/water2.jpeg");'>
+                                </div>
+                                <div class="p-5 flex flex-col flex-1 gap-2">
+                                    <h3 class="text-[#111811] text-lg font-bold">Water Pollution </h3>
+                                    <p class="text-[#638863] text-sm font-normal">Explore the causes and effects of
+                                        water
+                                        pollution and its impact on ecosystems.</p>
+                                </div>
+                            </div>
+                    </a>
+                    <a href="pdf/Air-Pollution-A-Global-Crisis-with-an-Indian-Epicenter.pdf">
+                        <div
+                            class="flex flex-col gap-4 rounded-lg bg-white shadow-sm hover:shadow-lg transition-shadow duration-300 overflow-hidden group">
+                            <div class="w-full h-48 bg-center bg-no-repeat bg-cover"
+                                style='background-image: url("images/air pollution.jpg");'>
+                            </div>
+                            <div class="p-5 flex flex-col flex-1 gap-2">
+                                <h3 class="text-[#111811] text-lg font-bold">Air Pollution</h3>
+                                <p class="text-[#638863] text-sm font-normal">Understand the science behind air
+                                    pollution and its impacts.</p>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="pdf/Climate-Change-Global-Crisis-and-Indias-Challenge.pdf">
+                        <div
+                            class="flex flex-col gap-4 rounded-lg bg-white shadow-sm hover:shadow-lg transition-shadow duration-300 overflow-hidden group">
+                            <div class="w-full h-48 bg-center bg-no-repeat bg-cover"
+                                style='background-image: url("images/climate.jpeg");'>
+                            </div>
+                            <div class="p-5 flex flex-col flex-1 gap-2">
+                                <h3 class="text-[#111811] text-lg font-bold">Climate Change</h3>
+                                <p class="text-[#638863] text-sm font-normal">Learn about the causes and effects of
+                                    climate
+                                    change and its impact on ecosystems.</p>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="pdf/The-Global-Impact-of-Cutting-Trees-Why-India-Matters (1).pdf">
+                        <div
+                            class="flex flex-col gap-4 rounded-lg bg-white shadow-sm hover:shadow-lg transition-shadow duration-300 overflow-hidden group">
+                            <div class="w-full h-48 bg-center bg-no-repeat bg-cover"
+                                style='background-image: url("images/deforest.jpg");'>
+                            </div>
+                            <div class="p-5 flex flex-col flex-1 gap-2">
+                                <h3 class="text-[#111811] text-lg font-bold">Deforestation</h3>
+                                <p class="text-[#638863] text-sm font-normal">Discover effective strategies for
+                                    conserving forests and promoting reforestation.</p>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="pdf/Understanding-the-3-Main-Types-of-Dustbins-in-India.pdf">
+                        <div
+                            class="flex flex-col gap-4 rounded-lg bg-white shadow-sm hover:shadow-lg transition-shadow duration-300 overflow-hidden group">
+                            <div class="w-full h-48 bg-center bg-no-repeat bg-cover"
+                                style='background-image: url("images/waste2.jpeg");'>
+                            </div>
+                            <div class="p-5 flex flex-col flex-1 gap-2">
+                                <h3 class="text-[#111811] text-lg font-bold">Waste Management</h3>
+                                <p class="text-[#638863] text-sm font-normal">Investigate various waste management
+                                    strategies and their applications.</p>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="quiz 19.html">
+                        <div
+                            class="flex flex-col items-center justify-center gap-4 rounded-lg bg-white border-2 border-dashed border-[#A0D2A0] shadow-sm hover:shadow-lg transition-shadow duration-300 overflow-hidden group cursor-pointer hover:bg-[#F0FFF0]">
+                            <div class="flex flex-col items-center justify-center h-full p-6 text-center">
+                                <span class="material-symbols-outlined text-5xl text-[#228B22] mb-4">quiz</span>
+                                <h3 class="text-[#111811] text-lg font-bold">Go to Quizzes</h3>
+                                <p class="text-[#638863] text-sm mt-1">Test your knowledge across all modules.</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <script src="theme.js"></script>
+    <script>
+        const menuBtn = document.getElementById("menu-btn");
+        const mobileMenu = document.getElementById("mobile-menu");
+
+        menuBtn.addEventListener("click", () => {
+            mobileMenu.classList.toggle("hidden");
+        });
+    </script>
+
+
+
+</body>
+
+</html>
