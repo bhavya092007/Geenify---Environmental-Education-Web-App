@@ -3,11 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Homepage</title>
-    <script src="https://cdn.tailwindcss.com"></script>
     <link
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
       rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
     />
     <link
       rel="icon"
@@ -15,352 +15,242 @@
       sizes="32x32"
       href="images/logo-modified-removebg-preview.png"
     />
+    <title>Greenify - Environmental Studies for Students</title>
+    <!-- Link external CSS -->
     <link rel="stylesheet" href="index.css" />
   </head>
-  <body class="bg-green-50 text-gray-900">
-    <div class="relative flex size-full min-h-screen">
-      <!-- Sidebar -->
-      <aside
-        id="sidebar"
-        class="sidebar fixed top-0 left-0 h-screen bg-green-100/90 backdrop-blur-sm border-r border-green-200 w-64 flex flex-col -translate-x-full md:translate-x-0 transition-transform duration-300 pl-6 md:pl-12 z-40"
-      >
-        <div class="p-4 flex items-center gap-2">
-          <img
-            src="images/logo-modified-removebg-preview.png"
-            alt="Logo"
-            class="h-10 w-10 rounded-lg"
-          />
-          <h1 class="text-xl font-bold text-green-700">Greenify</h1>
-        </div>
+  <body>
+    <header>
+      <!-- Brand: Logo + Text -->
+      <div class="brand">
+        <img
+          src="images/logo.jpg"
+          alt="Greenify Logo"
+          class="logo"
+        />
+        <span class="text">
+          <h2>Greenify</h2>
+        </span>
+      </div>
 
-        <!-- Menu -->
-        <nav class="flex-1 py-2">
-          <a
-            href="#"
-            class="menu-item block py-2 px-3 rounded hover:bg-green-200 transition"
-            data-page="activities"
-            >Activities 🎭</a
-          >
-          <a
-            href="games.html"
-            class="menu-item block py-2 px-3 rounded hover:bg-green-200 transition"
-            >Games 🎮</a
-          >
-          <a
-            href="quiz.html"
-            class="menu-item block py-2 px-3 rounded hover:bg-green-200 transition"
-            >Quizzes 🧩</a
-          >
-          <a
-            href="leaderboard.html"
-            class="menu-item block py-2 px-3 rounded hover:bg-green-200 transition"
-            >Leaderboard 🛹</a
-          >
-          <a
-            href="news.html"
-            class="menu-item block py-2 px-3 rounded hover:bg-green-200 transition"
-            >News 📰</a
-          >
-          <a
-            href="modules.html"
-            class="menu-item block py-2 px-3 rounded hover:bg-green-200 transition"
-            >Modules 📑</a
-          >
-          <a
-            href="calender.html"
-            class="menu-item block py-2 px-3 rounded hover:bg-green-200 transition"
-            >Calender 🗓️</a
-          >
+      <!-- Right side group -->
+      <div class="group">
+        <!-- Navigation -->
+        <nav class="navigation" id="navMenu">
+          <a href="index.html">Home</a>
+          <a href="signup.html">Signup</a>
+          <a href="about.html">About</a>
         </nav>
 
-        <!-- Back to Index Button -->
-        <div
-          class="absolute bottom-6 left-1/2 transform -translate-x-1/2 w-11/12"
-        >
-          <a
-            href="index.html"
-            class="block text-center bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-4 rounded-lg transition"
-          >
-            ⬅ Back to Home
-          </a>
+        <!-- Theme Toggle Button -->
+        <button id="themeToggle" class="theme-toggle">🌙</button>
+
+        <!-- Profile Dropdown -->
+        <div class="profile-container">
+          <button id="dropdownBtn" class="profile-btn">
+            <img
+              src="https://i.pravatar.cc/40"
+              alt="User"
+              class="profile-pic"
+            />
+          </button>
+          <div id="dropdownMenu" class="dropdown-menu">
+            <a href="profile.html">Profile</a>
+            <a href="help3.html">Help & Support</a>
+            <a href="dashboard.html">Dashboard</a>
+            <a href="about.html">About us</a>
+            <a href="#">Logout</a>
+          </div>
         </div>
-      </aside>
+      </div>
+    </header>
 
-      <!-- Main Content -->
-      <div
-        id="main"
-        class="flex-grow ml-0 md:ml-64 transition-all duration-300 p-4 sm:p-6 md:p-8"
-      >
-        <!-- Header -->
-        <header
-          class="flex flex-col sm:flex-row gap-4 sm:gap-0 sm:justify-between sm:items-center mb-6 sm:mb-8 relative z-50"
-        >
-          <div class="flex items-center justify-between w-full sm:w-auto">
-            <button
-              class="menu-toggle bg-green-200 text-green-900 p-2 rounded md:hidden"
-            >
-              ☰ Menu
-            </button>
-            <h1
-              id="pageTitle"
-              class="text-2xl sm:text-3xl font-bold ml-2 text-green-800"
-            ></h1>
-          </div>
+    <!-- HERO SECTION -->
+    <section class="hero">
+      <div class="hero-text">
+        <h1>Environmental Studies for Students</h1>
+        <h2>
+          Greenify is a gamified learning platform designed to make
+          environmental education engaging, interactive, and impactful.
+        </h2>
+        <button onclick="goToHomepage()">Explore Now 🚀</button>
+      </div>
+      <div class="hero-image">
+        <img
+          src="images/index_photo_cover-removebg-preview.png"
+          alt="Students learning nature"
+          class="img"
+        />
+      </div>
+    </section>
 
-          <div class="relative">
-            <button
-              id="dropdownBtn"
-              class="flex items-center gap-2 bg-green-200 px-3 py-2 rounded-lg hover:bg-green-300 text-green-900"
-            >
-              <img
-                src="https://i.pravatar.cc/40"
-                alt="User"
-                class="w-8 h-8 rounded-full"
-              />
-              <span>Jane Doe</span>
-              <span class="material-symbols-outlined"></span>
-            </button>
+    <!-- REST OF YOUR CONTENT STAYS SAME -->
+    <!-- ... About sections, Footer ... -->
+    <div class="about-container">
+      <div class="info-section">
+        <div class="text-content">
+          <h2>What is Greenify? 🤔</h2>
+          <p>
+            <strong>Greenify</strong> is a dynamic and interactive web platform
+            dedicated to making environmental education fun, accessible, and
+            engaging for everyone. It's a one-stop destination where you can
+            learn about our planet, connect with a like-minded community, and
+            discover actionable ways to make a positive impact.
+          </p>
+        </div>
+        <div class="image-content">
+          <img
+            src="images/what is greenify.png"
+            alt="A vibrant image representing the Greenify platform"
+          />
+        </div>
+      </div>
 
-            <div
-              id="dropdownMenu"
-              class="absolute right-0 mt-2 w-48 bg-green-100 text-green-900 rounded-lg shadow-lg hidden z-50"
-            >
-              <a
-                href="dashboard.html"
-                class="block px-4 py-2 hover:bg-green-200"
-                >Profile</a
-              >
-              <a
-                href="helpandsupport.html"
-                class="block px-4 py-2 hover:bg-green-200"
-                >Help & Support</a
-              >
-              <a href="#" class="block px-4 py-2 hover:bg-green-200">Logout</a>
-            </div>
-          </div>
-        </header>
+      <div class="info-section reverse">
+        <div class="text-content">
+          <h2>What are the features of Greenify? 🌟</h2>
+          <ul>
+            <li>
+              <strong>🎓 Learning Modules:</strong> Dive deep into specific
+              environmental topics.
+            </li>
+            <li>
+              <strong>🧩 Fun Quizzes:</strong> Test your knowledge and earn
+              badges.
+            </li>
+            <li>
+              <strong>🎮 Engaging Games:</strong> Learn complex concepts through
+              play.
+            </li>
+            <li>
+              <strong>🤝 Thriving Community:</strong> Join forums and
+              participate in group challenges.
+            </li>
+            <li>
+              <strong>📰 Latest News:</strong> Stay updated with positive
+              environmental news.
+            </li>
+            <li>
+              <strong>💡 Fun Facts:</strong> Get your daily dose of amazing and
+              shareable facts.
+            </li>
+          </ul>
+        </div>
+        <div class="image-content">
+          <img
+            src="images/future 1.png"
+            alt="Collage of Greenify features like games, quizzes, and community icons"
+          />
+        </div>
+      </div>
 
-        <!-- Center Fixed Box -->
-        <div
-          id="centerBox"
-          class="bg-green-100 p-6 rounded-2xl shadow-md min-h-[60vh] flex flex-col items-center justify-center text-green-700"
-        >
-          <div
-            id="centerBox"
-            class="bg-gray-800 p-6 rounded-2xl shadow-md min-h-[60vh] flex flex-col items-center justify-center text-gray-400"
-          >
-            <div
-              class="flex flex-col items-center justify-center text-center p-8 h-full relative overflow-hidden"
-            >
-              <!-- Background -->
-              <div
-                class="absolute inset-0 bg-gradient-to-br from-green-800/20 via-transparent to-blue- animate-gradient"
-              ></div>
+      <div class="info-section">
+        <div class="text-content">
+          <h2>What is the purpose of Greenify? 🎯</h2>
+          <p>
+            The core purpose of Greenify is to
+            <strong>educate, engage, and empower</strong>. We break down complex
+            environmental issues, make learning an active experience, and give
+            you the confidence to make more sustainable choices in your daily
+            life.
+          </p>
+        </div>
+        <div class="image-content">
+          <img
+            src="images/purpose png.png"
+            alt="Image showing people empowered and taking environmental action"
+          />
+        </div>
+      </div>
 
-              <!-- Glassmorphism Card -->
-              <div
-                class="bg-white/10 backdrop-blur-md rounded-2xl shadow-xl p-8 max-w-xl w-full border border-white/20 relative z-10"
-              >
-                <!-- Streak Badge -->
-                <div id="streakBadge" class="streak-badge mb-4">
-                  🔥 Daily Streak: <span id="streakCount">1</span> days
-                </div>
-
-                <h2
-                  class="text-3xl font-extrabold text-green-300 drop-shadow-lg"
-                >
-                  👋 Welcome, Jane!
-                </h2>
-                <p class="mt-2 text-gray-300">
-                  Ready for your next step in
-                  <span class="text-green-200 font-semibold">Greenify</span> 🌍
-                </p>
-
-                <!-- Boxes Section -->
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 mt-8">
-                  <!-- Fact Box -->
-                  <div class="flex flex-col items-center">
-                    <div class="scene">
-                      <div id="factBox" class="cube">
-                        <div class="face front">🌍</div>
-                        <div class="face back">🌱</div>
-                        <div class="face right">☀️</div>
-                        <div class="face left">💧</div>
-                        <div class="face top">🐝</div>
-                        <div class="face bottom">🌳</div>
-                      </div>
-                    </div>
-                    <p class="text-xs text-gray-300 mt-2">
-                      Click to reveal Fact 🔷
-                    </p>
-                    <div
-                      id="factCard"
-                      class="mt-4 bg-cyan-900/40 border border-cyan-500/30 rounded-xl p-4 text-left hidden w-full"
-                    >
-                      <p class="text-sm text-cyan-300 font-semibold">
-                        🔷 Eco Fact
-                      </p>
-                      <p id="ecoFact" class="text-gray-300 text-sm mt-1"></p>
-                    </div>
-                  </div>
-
-                  <!-- Challenge Box -->
-                  <div class="flex flex-col items-center">
-                    <div class="scene">
-                      <div id="challengeBox" class="cube challenge">
-                        <div class="face front">💡</div>
-                        <div class="face back">🚶</div>
-                        <div class="face right">♻️</div>
-                        <div class="face left">🍲</div>
-                        <div class="face top">🔌</div>
-                        <div class="face bottom">🌿</div>
-                      </div>
-                    </div>
-                    <p class="text-xs text-gray-300 mt-2">
-                      Click to reveal Challenge 🟩
-                    </p>
-                    <div
-                      id="challengeCard"
-                      class="mt-4 bg-green-900/40 border border-green-500/30 rounded-xl p-4 text-left hidden w-full"
-                    >
-                      <p class="text-sm text-green-300 font-semibold">
-                        🟩 Eco Challenge
-                      </p>
-                      <p
-                        id="ecoChallenge"
-                        class="text-gray-300 text-sm mt-1"
-                      ></p>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Footer -->
-                <p class="mt-8 text-sm text-gray-400 italic">
-                  "Small steps today, a greener tomorrow." 🌍💚
-                </p>
-              </div>
-            </div>
-          </div>
+      <div class="info-section reverse">
+        <div class="text-content">
+          <h2>Why choose Greenify? ✅</h2>
+          <p>
+            Greenify stands out by offering a unique, all-in-one approach. We
+            provide <strong>trustworthy information</strong> in a
+            <strong>positive and action-oriented</strong> way. You're not just
+            learning alone; you're joining a supportive community dedicated to
+            creating a healthier planet for everyone.
+          </p>
+        </div>
+        <div class="image-content">
+          <img
+            src="images/why greenify png.png"
+            alt="A person smiling while using the Greenify website on a laptop"
+          />
         </div>
       </div>
     </div>
 
-    <!-- JavaScript -->
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-section about">
+          <h3>🌿 Greenify</h3>
+          <p>
+            An educational platform to inspire students to adopt sustainable,
+            eco-friendly practices and make the world greener, one step at a
+            time.
+          </p>
+        </div>
+
+        <div class="footer-section links">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="index.html">🏠 Home</a></li>
+            <li><a href="about.html">📖 About</a></li>
+            <li><a href="help3.html">🧑‍💻 Help and Support</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section contact">
+          <h3>Contact</h3>
+          <p>📧 greenifyindia01@gmail.com</p>
+          <p>📍 Ahmedabad, India</p>
+        </div>
+
+        <div class="footer-section social">
+          <h3>Follow Us</h3>
+  <div class="social-media">
+          <div class="social-icons">
+            <a href="https://www.instagram.com/greenifyindia01/">
+              <span><i class="fa-brands fa-instagram"></i></span>
+            </a>
+          </div>
+          <div class="social-icons">
+            <a href="#">
+              <span><i class="fa-brands fa-linkedin"></i></span>
+            </a>
+          </div>
+          <div class="social-icons">
+            <a href="#">
+              <span><i class="fa-brands fa-github"></i></span>
+            </a>
+        </div>
+         <div class="social-icons">
+            <a href="#">
+              <span><i class="fa-brands fa-x-twitter"></i></span>
+            </a>
+        </div>
+        </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        © 2025 Greenify | Designed with 💚 for the Environment
+      </div>
+    </footer>
+
+
     <script>
-      const ecoFacts = [
-        "Trees absorb CO₂ and provide oxygen 🌳",
-        "Bees pollinate 1/3 of the food we eat 🐝",
-        "Turning off electronics saves energy ⚡",
-        "Recycling one can saves enough energy to power a TV for 3 hours ♻️",
-        "Composting reduces food waste 🌱",
-      ];
-      const challenges = [
-        "Unplug devices not in use 🔌",
-        "Pick up 3 pieces of litter today 🗑️",
-        "Use public transport or walk 🚶",
-        "Try a meat-free meal 🍲",
-        "Recycle plastic bottles ♻️",
-      ];
-
-      // --- STREAK LOGIC ---
-      const streakCountEl = document.getElementById("streakCount");
-      const streakBadge = document.getElementById("streakBadge");
-
-      const today = new Date();
-      const todayStr = today.toISOString().split("T")[0];
-      let lastVisit = localStorage.getItem("lastVisit");
-      let streak = parseInt(localStorage.getItem("streak")) || 0;
-
-      const yesterday = new Date();
-      yesterday.setDate(today.getDate() - 1);
-      const yesterdayStr = yesterday.toISOString().split("T")[0];
-
-      let streakIncreased = false;
-
-      if (lastVisit === todayStr) {
-      } else if (lastVisit === yesterdayStr) {
-        streak += 1;
-        streakIncreased = true;
-      } else {
-        streak = 1;
-        streakIncreased = true;
-      }
-
-      localStorage.setItem("lastVisit", todayStr);
-      localStorage.setItem("streak", streak);
-
-      streakCountEl.textContent = streak;
-
-      if (streakIncreased) {
-        streakBadge.classList.add("glow");
-        setTimeout(() => streakBadge.classList.remove("glow"), 1000);
-      }
-
-      // --- FACT BOX ---
-      const factBox = document.getElementById("factBox");
-      const factCard = document.getElementById("factCard");
-      const ecoFact = document.getElementById("ecoFact");
-
-      factBox.addEventListener("click", () => {
-        const x = Math.floor(Math.random() * 4) * 90;
-        const y = Math.floor(Math.random() * 4) * 90;
-        factBox.style.transform = `rotateX(${x + 360}deg) rotateY(${
-          y + 360
-        }deg)`;
-        setTimeout(() => {
-          ecoFact.textContent =
-            ecoFacts[Math.floor(Math.random() * ecoFacts.length)];
-          factCard.classList.remove("hidden");
-        }, 2000);
-      });
-
-      // --- CHALLENGE BOX ---
-      const challengeBox = document.getElementById("challengeBox");
-      const challengeCard = document.getElementById("challengeCard");
-      const ecoChallenge = document.getElementById("ecoChallenge");
-
-      challengeBox.addEventListener("click", () => {
-        const x = Math.floor(Math.random() * 4) * 90;
-        const y = Math.floor(Math.random() * 4) * 90;
-        challengeBox.style.transform = `rotateX(${x + 360}deg) rotateY(${
-          y + 360
-        }deg)`;
-        setTimeout(() => {
-          ecoChallenge.textContent =
-            challenges[Math.floor(Math.random() * challenges.length)];
-          challengeCard.classList.remove("hidden");
-        }, 2000);
-      });
-
-      // Sidebar Toggle
-      const menuBtn = document.querySelector(".menu-toggle");
-      const sidebar = document.getElementById("sidebar");
-      const main = document.getElementById("main");
-
-      menuBtn.addEventListener("click", (e) => {
-        e.stopPropagation();
-        sidebar.classList.toggle("-translate-x-full");
-        main.classList.toggle("ml-64");
-      });
-
-      document.addEventListener("click", (e) => {
-        if (
-          !sidebar.contains(e.target) &&
-          !menuBtn.contains(e.target) &&
-          !sidebar.classList.contains("-translate-x-full")
-        ) {
-          sidebar.classList.add("-translate-x-full");
-          main.classList.remove("ml-64");
-        }
-      });
-
-      // Dropdown Script
+      // Profile dropdown
       const dropdownBtn = document.getElementById("dropdownBtn");
       const dropdownMenu = document.getElementById("dropdownMenu");
 
       dropdownBtn.addEventListener("click", (e) => {
         e.stopPropagation();
-        dropdownMenu.classList.toggle("hidden");
+        dropdownMenu.classList.toggle("show");
       });
 
       document.addEventListener("click", (e) => {
@@ -368,129 +258,31 @@
           !dropdownBtn.contains(e.target) &&
           !dropdownMenu.contains(e.target)
         ) {
-          dropdownMenu.classList.add("hidden");
+          dropdownMenu.classList.remove("show");
         }
       });
 
-      // Menu Item Click
-      const centerBox = document.getElementById("centerBox");
-      const pageTitle = document.getElementById("pageTitle");
-      const menuItems = document.querySelectorAll(".menu-item");
-
-      const activitiesData = [
-        {
-          title: "♻️ Recycling Challenge",
-          points: "+50",
-          description: "Sort and recycle household items correctly.",
-          tags: ["beginner", "challenge"],
-          time: "15 min",
-          participants: "1200",
-        },
-        {
-          title: "🌳 Tree Planting",
-          points: "+75",
-          description: "Plant a tree in your community or garden.",
-          tags: ["intermediate", "outdoor"],
-          time: "20 min",
-          participants: "500",
-        },
-        {
-          title: "💡 Energy Saving",
-          points: "+40",
-          description: "Implement energy-saving practices at home.",
-          tags: ["beginner"],
-          time: "10 min",
-          participants: "800",
-        },
-        {
-          title: "Use Public Transport",
-          points: "+40",
-          description: "use public transport instead of personal vehicles.",
-          tags: ["beginner"],
-          time: "no time-limit",
-          participants: "800",
-        },
-        {
-          title: "Make Meme on Environment",
-          points: "+40",
-          description: "Make a creative meme on environment.",
-          tags: ["beginner"],
-          time: "30 min",
-          participants: "800",
-        },
-        {
-          title: "Use cycle or just walk for short distances",
-          points: "+70",
-          description: "Use cycle or just walk for short distances",
-          tags: ["beginner"],
-          time: "1 day",
-          participants: "800",
-        },
-      ];
-
-      function renderActivities() {
-        let html = `<h2 class="text-2xl font-semibold mb-4 black-white">🌍 Environmental Activities</h2>
-              <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 w-full">`;
-
-        activitiesData.forEach((activity) => {
-          html += `
-      <div class="bg-white text-black p-6 rounded-2xl shadow-md flex flex-col justify-between">
-        <div>
-          <h3 class="text-xl font-bold mb-2 flex items-center gap-2">
-            ${activity.title} <span class="text-orange-500">${
-            activity.points
-          }</span>
-          </h3>
-          <p class="mb-4">${activity.description}</p>
-          <div class="flex gap-2 mb-2">
-            ${activity.tags
-              .map(
-                (tag) =>
-                  `<span class="bg-green-500 text-white text-xs px-2 py-1 rounded-full">${tag}</span>`
-              )
-              .join("")}
-          </div>
-          <div class="flex justify-between text-gray-500 text-sm">
-            <span>⏱ ${activity.time}</span>
-            <span>👥 ${activity.participants}</span>
-          </div>
-        </div>
-       <button 
-  class="mt-4 bg-black text-white py-2 px-3 rounded-lg font-semibold text-sm sm:text-base" 
-  onclick="window.location.href='startpage.html'">
-  Start Activity
-</button>
-
-      </div>
-    `;
-        });
-
-        html += `</div>`;
-        centerBox.innerHTML = html;
+      // Explore button
+      function goToHomepage() {
+        window.location.href = "loading.html";
       }
 
-      menuItems.forEach((item) => {
-        item.addEventListener("click", (e) => {
-          const page = item.getAttribute("data-page");
+      // Theme toggle
+      const themeToggle = document.getElementById("themeToggle");
 
-          if (page === "activities") {
-            e.preventDefault();
-            pageTitle.textContent = item.textContent;
-            renderActivities();
-          }
-        });
-      });
+      themeToggle.addEventListener("click", () => {
+        document.body.classList.toggle("dark-mode");
 
-      const sidebarLinks = document.querySelectorAll("#sidebar .menu-item");
-
-      sidebarLinks.forEach((link) => {
-        link.addEventListener("click", () => {
-          if (window.innerWidth < 768) {
-            sidebar.classList.add("-translate-x-full");
-            main.classList.remove("ml-64");
-          }
-        });
+        // Switch icon 🌙 <-> 🌞
+        if (document.body.classList.contains("dark-mode")) {
+          themeToggle.textContent = "🌞";
+        } else {
+          themeToggle.textContent = "🌙";
+        }
       });
     </script>
   </body>
 </html>
+
+
+
