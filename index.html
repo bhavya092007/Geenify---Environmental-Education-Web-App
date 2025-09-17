@@ -13,7 +13,7 @@
       rel="icon"
       type="image/png"
       sizes="32x32"
-      href="images/logo-modified-removebg-preview.png"
+      href="logo-modified-removebg-preview.png"
     />
     <title>Greenify - Environmental Studies for Students</title>
     <!-- Link external CSS -->
@@ -21,52 +21,71 @@
   </head>
   <body>
     <header>
-      <img src="images/logo-modified.png" alt="Greenify Logo" class="logo" />
-      <span class="text">Greenify</span>
+      <!-- Brand: Logo + Text -->
+      <div class="brand">
+        <img
+          src="logo.jpg"
+          alt="Greenify Logo"
+          class="logo"
+        />
+        <span class="text">
+          <h2>Greenify</h2>
+        </span>
+      </div>
 
-      <!-- Navigation -->
-      <nav class="navigation" id="navMenu">
-        <a href="home.html">Home</a>
-        <a href="signup.html">Signup</a>
-        <a href="terms.html">About</a>
-      </nav>
+      <!-- Right side group -->
+      <div class="group">
+        <!-- Navigation -->
+        <nav class="navigation" id="navMenu">
+          <a href="index.html">Home</a>
+          <a href="signup.html">Signup</a>
+          <a href="about.html">About</a>
+        </nav>
 
-      <!-- Theme Toggle Button -->
-      <button id="themeToggle" class="theme-toggle">🌙</button>
+        <!-- Theme Toggle Button -->
+        <button id="themeToggle" class="theme-toggle">🌙</button>
 
-      <!-- Profile Dropdown -->
-      <div class="profile-container">
-        <button id="dropdownBtn" class="profile-btn">
-          <img src="https://i.pravatar.cc/40" alt="User" class="profile-pic" />
-        </button>
-        <div id="dropdownMenu" class="dropdown-menu">
-          <a href="#">Profile</a>
-          <a href="#">Contact</a>
-          <a href="#">Dashboard</a>
-          <a href="#">Badges</a>
-          <a href="#">Logout</a>
+        <!-- Profile Dropdown -->
+        <div class="profile-container">
+          <button id="dropdownBtn" class="profile-btn">
+            <img
+              src="https://i.pravatar.cc/40"
+              alt="User"
+              class="profile-pic"
+            />
+          </button>
+          <div id="dropdownMenu" class="dropdown-menu">
+            <a href="profile.html">Profile</a>
+            <a href="help3.html">Help & Support</a>
+            <a href="dashboard.html">Dashboard</a>
+            <a href="about.html">About us</a>
+            <a href="#">Logout</a>
+          </div>
         </div>
       </div>
     </header>
 
+    <!-- HERO SECTION -->
     <section class="hero">
       <div class="hero-text">
         <h1>Environmental Studies for Students</h1>
-        <p>
-          Learn how to protect the environment and make the world a greener
-          place.
-        </p>
+        <h2>
+          Greenify is a gamified learning platform designed to make
+          environmental education engaging, interactive, and impactful.
+        </h2>
         <button onclick="goToHomepage()">Explore Now 🚀</button>
       </div>
       <div class="hero-image">
         <img
-          src="images/index_photo_cover-removebg-preview.png"
+          src="index_photo_cover-removebg-preview.png"
           alt="Students learning nature"
           class="img"
         />
       </div>
     </section>
 
+    <!-- REST OF YOUR CONTENT STAYS SAME -->
+    <!-- ... About sections, Footer ... -->
     <div class="about-container">
       <div class="info-section">
         <div class="text-content">
@@ -81,7 +100,7 @@
         </div>
         <div class="image-content">
           <img
-            src="images/what is greenify.png"
+            src="what is greenify.png"
             alt="A vibrant image representing the Greenify platform"
           />
         </div>
@@ -119,7 +138,7 @@
         </div>
         <div class="image-content">
           <img
-            src="images/future 1.png"
+            src="future 1.png"
             alt="Collage of Greenify features like games, quizzes, and community icons"
           />
         </div>
@@ -138,7 +157,7 @@
         </div>
         <div class="image-content">
           <img
-            src="images/purpose png.png"
+            src="purpose png.png"
             alt="Image showing people empowered and taking environmental action"
           />
         </div>
@@ -157,7 +176,7 @@
         </div>
         <div class="image-content">
           <img
-            src="images/why greenify png.png"
+            src="why greenify png.png"
             alt="A person smiling while using the Greenify website on a laptop"
           />
         </div>
@@ -179,8 +198,8 @@
           <h3>Quick Links</h3>
           <ul>
             <li><a href="index.html">🏠 Home</a></li>
-            <li><a href="terms.html">📖 About</a></li>
-            <li><a href="help.html">🧑‍💻 Help and Support</a></li>
+            <li><a href="about.html">📖 About</a></li>
+            <li><a href="help3.html">🧑‍💻 Help and Support</a></li>
           </ul>
         </div>
 
@@ -192,10 +211,28 @@
 
         <div class="footer-section social">
           <h3>Follow Us</h3>
+  <div class="social-media">
           <div class="social-icons">
             <a href="https://www.instagram.com/greenifyindia01/">
               <span><i class="fa-brands fa-instagram"></i></span>
             </a>
+          </div>
+          <div class="social-icons">
+            <a href="#">
+              <span><i class="fa-brands fa-linkedin"></i></span>
+            </a>
+          </div>
+          <div class="social-icons">
+            <a href="#">
+              <span><i class="fa-brands fa-github"></i></span>
+            </a>
+        </div>
+         <div class="social-icons">
+            <a href="#">
+              <span><i class="fa-brands fa-x-twitter"></i></span>
+            </a>
+        </div>
+        </div>
           </div>
         </div>
       </div>
@@ -204,6 +241,7 @@
         © 2025 Greenify | Designed with 💚 for the Environment
       </div>
     </footer>
+
 
     <script>
       // Profile dropdown
@@ -224,16 +262,6 @@
         }
       });
 
-      // Hamburger menu (safe check in case no hamburger exists)
-      const hamburger = document.getElementById("hamburger");
-      const navMenu = document.getElementById("navMenu");
-
-      if (hamburger) {
-        hamburger.addEventListener("click", () => {
-          navMenu.classList.toggle("show");
-        });
-      }
-
       // Explore button
       function goToHomepage() {
         window.location.href = "loading.html";
@@ -252,23 +280,9 @@
           themeToggle.textContent = "🌙";
         }
       });
-
-      // Accordion functionality
-      const accordions = document.querySelectorAll(".accordion-header");
-
-      accordions.forEach((header) => {
-        header.addEventListener("click", () => {
-          const item = header.parentElement;
-
-          // Close other accordions
-          document.querySelectorAll(".accordion-item").forEach((acc) => {
-            if (acc !== item) acc.classList.remove("active");
-          });
-
-          // Toggle current
-          item.classList.toggle("active");
-        });
-      });
     </script>
   </body>
 </html>
+
+
+
