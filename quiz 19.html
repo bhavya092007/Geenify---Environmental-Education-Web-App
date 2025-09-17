@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Eco Quiz Platform 🌍 — All Quizzes</title>
+  <style>
+    :root {
+      --bg-light: linear-gradient(135deg, #e6f7e6 0%, #ccf2d1 100%);
+      --card-light: #ffffff;
+      --text-light: #1f2937;
+      --outline-light: #d1e7d5;
+      --bg-dark: linear-gradient(135deg, #0d1f14 0%, #163622 100%);
+      --card-dark: #1f2f25;
+      --text-dark: #e7f5e7;
+      --outline-dark: rgba(255,255,255,0.1);
+      --accent: #16a34a; --accent2: #059669;
+      --danger: #dc2626; --mark: #f97316;
+    }
+    body{margin:0;font-family:Inter,system-ui,sans-serif;background:var(--bg-light);color:var(--text-light);transition:background .4s,color .3s;background-attachment:fixed;}
+    body.dark{background:var(--bg-dark);color:var(--text-dark);}
+    .wrap{max-width:1100px;margin:auto;padding:20px;}
+    header{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;}
+    h1{margin:0;font-size:26px;}
+    .toggle{cursor:pointer;padding:6px 12px;border-radius:8px;border:1px solid var(--outline-light);background:var(--card-light);}body.dark .toggle{border:1px solid var(--outline-dark);background:var(--card-dark);color:var(--text-dark);}
+    /* Menu */
+    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:20px;}
+    .card{background:var(--card-light);border:1px solid var(--outline-light);border-radius:16px;padding:20px;box-shadow:0 4px 12px rgba(0,0,0,.2);}
+    body.dark .card{background:var(--card-dark);border:1px solid var(--outline-dark);}
+    .card h2{margin:0;font-size:20px;display:flex;justify-content:space-between;align-items:center;}
+    .points{color:#fbbf24;font-weight:700;}
+    .desc{margin:8px 0 12px;color:gray;font-size:14px;}
+    .startBtn{background:var(--accent);color:white;padding:10px;border:none;border-radius:8px;cursor:pointer;font-weight:600;}
+    .startBtn:hover{background:var(--accent2);}
+    /* Quiz area */
+    #quizArea{display:none;}
+    .progress{height:10px;background:var(--outline-light);border-radius:999px;overflow:hidden;margin:16px 0;}
+    body.dark .progress{background:var(--outline-dark);}
+    .progress span{display:block;height:100%;background:linear-gradient(90deg,#34d399,#059669);width:0;}
+    .qcard{background:var(--card-light);border:1px solid var(--outline-light);padding:20px;border-radius:12px;margin-bottom:20px;}
+    body.dark .qcard{background:var(--card-dark);border:1px solid var(--outline-dark);}
+    .question{font-weight:600;margin-bottom:12px;}
+    .options label{display:block;padding:10px;border:1px solid var(--outline-light);border-radius:8px;margin:6px 0;cursor:pointer;}
+    body.dark .options label{border:1px solid var(--outline-dark);}
+    .options input{display:none;}
+    .options input:checked+span{background:#065f46;color:#fff;display:block;padding:10px;border-radius:8px;}
+    .controls{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px;}
+    .btn{padding:10px 15px;border:none;border-radius:8px;font-weight:500;cursor:pointer;}
+    .btn-green{background:var(--accent);color:#fff;}
+    .btn-orange{background:var(--mark);color:#fff;}
+    .btn-danger{background:var(--danger);color:#fff;}
+    .btn-ghost{background:transparent;border:1px solid var(--outline-light);}
+    body.dark .btn-ghost{border:1px solid var(--outline-dark);color:var(--text-dark);}
+    .qnav{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px;}
+    .qbtn{padding:6px 10px;border-radius:6px;background:var(--outline-light);cursor:pointer;}
+    body.dark .qbtn{background:var(--outline-dark);}
+    .qbtn.answered{background:#22c55e;color:#fff;}
+    .qbtn.saved{background:#f97316;color:#fff;}
+    .review{display:none;margin-top:20px;padding:20px;border-radius:12px;background:var(--card-light);}
+    body.dark .review{background:var(--card-dark);}
+    .review table{width:100%;border-collapse:collapse;margin-top:10px;}
+    .review th,.review td{border-bottom:1px solid var(--outline-light);padding:6px;text-align:left;}
+    body.dark .review th,body.dark .review td{border-bottom:1px solid var(--outline-dark);}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>🌍 Environmental Quizzes — All Topics</h1>
+      <button class="toggle" id="modeBtn">🌙 Dark</button>
+    </header>
+
+    <!-- Menu -->
+    <div id="menu" class="grid">
+      <div class="card"><h2>Quiz 1 <span class="points">+50</span></h2><p class="desc">Questions 1–10</p><button class="startBtn" onclick="startQuiz(1)">Start Quiz</button></div>
+      <div class="card"><h2>Quiz 2 <span class="points">+60</span></h2><p class="desc">Questions 11–20</p><button class="startBtn" onclick="startQuiz(2)">Start Quiz</button></div>
+      <div class="card"><h2>Quiz 3 <span class="points">+70</span></h2><p class="desc">Questions 21–30</p><button class="startBtn" onclick="startQuiz(3)">Start Quiz</button></div>
+      <div class="card"><h2>Quiz 4 <span class="points">+65</span></h2><p class="desc">Questions 31–40</p><button class="startBtn" onclick="startQuiz(4)">Start Quiz</button></div>
+      <div class="card"><h2>Quiz 5 <span class="points">+55</span></h2><p class="desc">Questions 41–50</p><button class="startBtn" onclick="startQuiz(5)">Start Quiz</button></div>
+      <div class="card"><h2>Quiz 6 <span class="points">+80</span></h2><p class="desc">Questions 51–60</p><button class="startBtn" onclick="startQuiz(6)">Start Quiz</button></div>
+      <div class="card"><h2>Quiz 7 <span class="points">+60</span></h2><p class="desc">Questions 61–70</p><button class="startBtn" onclick="startQuiz(7)">Start Quiz</button></div>
+      <div class="card"><h2>Quiz 8 <span class="points">+75</span></h2><p class="desc">Questions 71–80</p><button class="startBtn" onclick="startQuiz(8)">Start Quiz</button></div>
+      <div class="card"><h2>Quiz 9 <span class="points">+90</span></h2><p class="desc">Questions 81–90</p><button class="startBtn" onclick="startQuiz(9)">Start Quiz</button></div>
+      <div class="card"><h2>Quiz 10 <span class="points">+100</span></h2><p class="desc">Questions 91–100</p><button class="startBtn" onclick="startQuiz(10)">Start Quiz</button></div>
+
+      <div class="card"><h2>Quiz 11 <span class="points">+85</span></h2><p class="desc">Climate Change: Basics & Science</p><button class="startBtn" onclick="startQuiz(11)">Start Quiz</button></div>
+      <div class="card"><h2>Quiz 12 <span class="points">+95</span></h2><p class="desc">Climate Change: Impacts & Solutions</p><button class="startBtn" onclick="startQuiz(12)">Start Quiz</button></div>
+
+      <div class="card"><h2>Quiz 13 <span class="points">+70</span></h2><p class="desc">Air Pollution: Basics & Sources</p><button class="startBtn" onclick="startQuiz(13)">Start Quiz</button></div>
+      <div class="card"><h2>Quiz 14 <span class="points">+75</span></h2><p class="desc">Air Pollution: Impacts & Management</p><button class="startBtn" onclick="startQuiz(14)">Start Quiz</button></div>
+
+      <div class="card"><h2>Quiz 15 <span class="points">+60</span></h2><p class="desc">Dustbin: Basics & Green/Blue Bins</p><button class="startBtn" onclick="startQuiz(15)">Start Quiz</button></div>
+      <div class="card"><h2>Quiz 16 <span class="points">+60</span></h2><p class="desc">Dustbin: Yellow Bin & Impacts</p><button class="startBtn" onclick="startQuiz(16)">Start Quiz</button></div>
+
+      <div class="card"><h2>Quiz 17 <span class="points">+80</span></h2><p class="desc">Water Pollution: Basics</p><button class="startBtn" onclick="startQuiz(17)">Start Quiz</button></div>
+      <div class="card"><h2>Quiz 18 <span class="points">+80</span></h2><p class="desc">Water Pollution: Impacts & Solutions</p><button class="startBtn" onclick="startQuiz(18)">Start Quiz</button></div>
+
+      <div class="card"><h2>Quiz 19 <span class="points">+40</span></h2><p class="desc">General Knowledge</p><button class="startBtn" onclick="startQuiz(19)">Start Quiz</button></div>
+    </div>
+
+    <!-- Quiz Area -->
+    <div id="quizArea">
+      <div class="progress"><span id="prog"></span></div>
+      <div id="qcard" class="qcard"></div>
+      <div class="controls">
+        <button class="btn btn-ghost" onclick="prevQ()">⬅ Prev</button>
+        <button class="btn btn-green" onclick="nextQ()">Next ➡</button>
+        <button class="btn btn-orange" onclick="saveQ()">Save for Later</button>
+        <button id="savedBtn" class="btn btn-orange" onclick="showSaved()" style="display:none;">Saved</button>
+        <button class="btn btn-danger" onclick="submitQuiz()">Submit</button>
+        <button class="btn btn-ghost" onclick="backMenu()">🏠 Menu</button>
+      </div>
+      <div id="qnav" class="qnav"></div>
+      <div id="review" class="review"></div>
+    </div>
+  </div>
+
+  <script>
+    /* ========== ALL QUESTIONS (190) ========== */
+    const ALL=[
+/* -----------------------------
+   Original Quizzes 1–10 (100)
+   Source: initial Eco Quiz Platform uploaded by you
+   ----------------------------- */
+      // Quiz1
+      {q:"Which is the largest mammal?",c:["Elephant","Blue Whale","Giraffe","Shark"],a:1},
+      {q:"Plants make food by?",c:["Respiration","Photosynthesis","Digestion","Transpiration"],a:1},
+      {q:"Capital of Japan?",c:["Beijing","Seoul","Tokyo","Bangkok"],a:2},
+      {q:"Most abundant gas in air?",c:["Oxygen","Nitrogen","CO2","Hydrogen"],a:1},
+      {q:"Who wrote Romeo & Juliet?",c:["Shakespeare","Milton","Wordsworth","Keats"],a:0},
+      {q:"Red Planet?",c:["Mars","Jupiter","Venus","Saturn"],a:0},
+      {q:"H2O is?",c:["Salt","Oxygen","Water","Hydrogen"],a:2},
+      {q:"Speed of light?",c:["3x10^5 km/s","300 km/s","1500 m/s","30,000 km/s"],a:0},
+      {q:"Father of Nation (India)?",c:["Nehru","Gandhi","Patel","Ambedkar"],a:1},
+      {q:"Smallest prime number?",c:["0","1","2","3"],a:2},
+
+      // Quiz2
+      {q:"Which is the largest continent?",c:["Africa","Asia","Europe","Australia"],a:1},
+      {q:"Taj Mahal is in?",c:["Delhi","Agra","Jaipur","Mumbai"],a:1},
+      {q:"First President of India?",c:["Rajendra Prasad","Nehru","Patel","Gandhi"],a:0},
+      {q:"Fastest land animal?",c:["Cheetah","Horse","Leopard","Tiger"],a:0},
+      {q:"Sun rises in the?",c:["West","North","East","South"],a:2},
+      {q:"National bird of India?",c:["Crow","Peacock","Eagle","Parrot"],a:1},
+      {q:"Which gas do plants release at night?",c:["Oxygen","CO2","Nitrogen","Helium"],a:1},
+      {q:"Which planet has rings?",c:["Venus","Saturn","Mars","Mercury"],a:1},
+      {q:"Which is the hottest planet?",c:["Mercury","Venus","Mars","Jupiter"],a:1},
+      {q:"Which is the smallest ocean?",c:["Indian","Pacific","Atlantic","Arctic"],a:3},
+
+      // Quiz3
+      {q:"World Environment Day?",c:["5 June","22 April","1 May","15 Aug"],a:0},
+      {q:"Which is a renewable source?",c:["Coal","Petrol","Solar","Diesel"],a:2},
+      {q:"Deforestation causes?",c:["Rain","Soil Erosion","Flood control","Fertility"],a:1},
+      {q:"Largest river in the world?",c:["Nile","Amazon","Ganga","Yangtze"],a:1},
+      {q:"Ozone protects us from?",c:["CO2","UV rays","O2","Dust"],a:1},
+      {q:"Which is non-renewable?",c:["Wind","Coal","Solar","Water"],a:1},
+      {q:"Which is a greenhouse gas?",c:["O2","N2","CO2","Ar"],a:2},
+      {q:"Recycling saves?",c:["Energy","Pollution","Resources","All"],a:3},
+      {q:"Which animal is endangered?",c:["Tiger","Cow","Dog","Goat"],a:0},
+      {q:"Earth Day?",c:["5 June","22 April","10 Oct","1 Dec"],a:1},
+
+      // Quiz4
+      {q:"Which is the tallest mountain?",c:["K2","Everest","Kanchenjunga","Alps"],a:1},
+      {q:"Which is the coldest place?",c:["Siberia","Antarctica","Alaska","Arctic"],a:1},
+      {q:"Gas used by divers?",c:["O2","He","CO2","N2"],a:1},
+      {q:"Which is the largest desert?",c:["Sahara","Thar","Gobi","Arctic"],a:0},
+      {q:"Largest ocean?",c:["Atlantic","Pacific","Indian","Arctic"],a:1},
+      {q:"Soil erosion is prevented by?",c:["Trees","Cement","Plastic","Iron"],a:0},
+      {q:"Which is the cleanest energy?",c:["Coal","Petrol","Solar","Diesel"],a:2},
+      {q:"Which is a fossil fuel?",c:["Coal","Wind","Water","Sun"],a:0},
+      {q:"Population Day?",c:["5 June","11 July","22 April","1 May"],a:1},
+      {q:"Largest forest?",c:["Amazon","Sundarbans","Congo","Daintree"],a:0},
+
+      // Quiz5
+      {q:"Symbol of peace?",c:["Tiger","Dove","Lion","Elephant"],a:1},
+      {q:"Which country has Great Wall?",c:["India","China","Japan","Russia"],a:1},
+      {q:"Which is a water pollutant?",c:["Plastic","Sand","Soil","Stone"],a:0},
+      {q:"Which animal gives us wool?",c:["Sheep","Cow","Goat","Dog"],a:0},
+      {q:"Largest democracy?",c:["India","USA","UK","China"],a:0},
+      {q:"Gas for respiration?",c:["O2","CO2","N2","H2"],a:0},
+      {q:"Gas for photosynthesis?",c:["O2","CO2","N2","Ar"],a:1},
+      {q:"Recycle symbol is?",c:["Triangle","Square","Circle","Star"],a:0},
+      {q:"Save water slogan?",c:["No rain","Save water","Play water","Use more"],a:1},
+      {q:"National animal of India?",c:["Lion","Tiger","Elephant","Deer"],a:1},
+
+      // Quiz6
+      {q:"Plastic is?",c:["Biodegradable","Non-biodegradable","Renewable","Edible"],a:1},
+      {q:"Solar energy is?",c:["Conventional","Non-renewable","Renewable","Fossil"],a:2},
+      {q:"Tree planting is called?",c:["Deforestation","Afforestation","Cutting","Pollution"],a:1},
+      {q:"Harmful UV rays cause?",c:["Cancer","Cold","Fever","Injury"],a:0},
+      {q:"Wind energy is?",c:["Renewable","Non-renewable","Fossil","Gas"],a:0},
+      {q:"Vehicle smoke has?",c:["O2","CO","H2","N2"],a:1},
+      {q:"Hybrid cars save?",c:["Water","Fuel","Plastic","Sand"],a:1},
+      {q:"Greenhouse effect is?",c:["Cooling","Warming","Rain","Wind"],a:1},
+      {q:"Rainwater harvesting saves?",c:["Rain","Soil","Water","Sand"],a:2},
+      {q:"Solar panels make?",c:["Water","Food","Electricity","Oxygen"],a:2},
+
+      // Quiz7
+      {q:"E-waste is?",c:["Plastic","Old electronics","Wood","Glass"],a:1},
+      {q:"CFCs damage?",c:["CO2","Ozone","O2","N2"],a:1},
+      {q:"Battery waste has?",c:["Iron","Lead","Water","Wood"],a:1},
+      {q:"Sound pollution unit?",c:["Decibel","Volt","Ampere","Meter"],a:0},
+      {q:"Noise above safe limit?",c:["80dB","40dB","20dB","10dB"],a:0},
+      {q:"Save trees slogan?",c:["Plant more trees","Cut trees","Burn trees","Ignore"],a:0},
+      {q:"Recycle paper saves?",c:["Trees","Iron","Water","Sand"],a:0},
+      {q:"One tree gives?",c:["Air","O2","Water","CO2"],a:1},
+      {q:"Earth is called?",c:["Blue planet","Red planet","Green planet","Gas giant"],a:0},
+      {q:"Water covers?",c:["50%","71%","30%","90%"],a:1},
+
+      // Quiz8
+      {q:"Energy from moving water?",c:["Wind","Thermal","Hydro","Solar"],a:2},
+      {q:"Which is biodegradable?",c:["Banana peel","Plastic","Glass","Metal"],a:0},
+      {q:"Ozone hole over?",c:["Arctic","Antarctica","Africa","Asia"],a:1},
+      {q:"Deforestation causes?",c:["Rain","Floods","Soil erosion","Both"],a:3},
+      {q:"Recycling glass saves?",c:["Sand","Stone","Iron","Gold"],a:0},
+      {q:"CNG is?",c:["Clean fuel","Dirty fuel","Solid fuel","Coal"],a:0},
+      {q:"Lead in petrol banned because?",c:["Toxic","Cheap","Good","Fast"],a:0},
+      {q:"Solar cookers use?",c:["Gas","Coal","Sunlight","Electricity"],a:2},
+      {q:"Organic waste makes?",c:["Plastic","Compost","Glass","Metal"],a:1},
+      {q:"Plastic bags banned due to?",c:["Strong","Cheap","Pollution","Light"],a:2},
+
+      // Quiz9
+      {q:"Mangroves found in?",c:["Mountains","Deserts","Coasts","Plains"],a:2},
+      {q:"Chipko movement saved?",c:["Water","Animals","Trees","Land"],a:2},
+      {q:"Fuel from plants?",c:["Biofuel","Diesel","Petrol","Coal"],a:0},
+      {q:"Excess CO2 causes?",c:["Global warming","Cooling","Rain","Snow"],a:0},
+      {q:"Polar bears in?",c:["Arctic","Antarctica","Desert","Forest"],a:0},
+      {q:"Solar cells convert?",c:["Heat to Water","Light to Electricity","Water to Air","Air to Food"],a:1},
+      {q:"3Rs stand for?",c:["Reduce Reuse Recycle","Read Write Run","Run Rest Read","None"],a:0},
+      {q:"Ecosystem includes?",c:["Only plants","Only animals","Living + Nonliving","None"],a:2},
+      {q:"Global warming increases?",c:["Temp","Cold","Snow","Ice"],a:0},
+      {q:"Tree roots prevent?",c:["Erosion","Rain","Sun","Air"],a:0},
+
+      // Quiz10
+      {q:"UN climate conference is called?",c:["COP","UNDP","WHO","NATO"],a:0},
+      {q:"Paris Agreement year?",c:["2010","2015","2020","2000"],a:1},
+      {q:"Kyoto Protocol focused on?",c:["Ozone","Carbon emissions","Water","Forest"],a:1},
+      {q:"IPCC means?",c:["International Panel on Climate Change","Intergovernmental Panel on Climate Change","Indian Pollution Control Council","None"],a:1},
+      {q:"Sustainable dev means?",c:["Using all resources","Saving for future","No use","Only present use"],a:1},
+      {q:"Earth Summit in?",c:["Rio 1992","Delhi 2000","Paris 2015","NY 2010"],a:0},
+      {q:"Carbon footprint is?",c:["Area","Emissions","Foot size","Population"],a:1},
+      {q:"Net zero means?",c:["Zero people","Zero emissions","Zero forests","Zero cars"],a:1},
+      {q:"SDG 13 is?",c:["Life on land","Climate Action","Zero hunger","Clean water"],a:1},
+      {q:"India’s renewable goal 2030?",c:["500 GW","50 GW","1000 GW","200 GW"],a:0},
+
+/* -----------------------------
+   Climate Change — Quizzes 11 & 12 (20)
+   Converted to ALL-format (c / a)
+   ----------------------------- */
+      // Quiz11 (questions 101–110)
+      {q:"Which gas is the largest contributor to anthropogenic radiative forcing and is produced mainly by fossil fuel combustion and land-use change?",c:["Methane (CH₄)","Carbon dioxide (CO₂)","Nitrous oxide (N₂O)","Ozone (O₃)"],a:1},
+      {q:"What is the greenhouse effect?",c:["The trapping of solar energy by greenhouse gases leading to warming","The depletion of the ozone layer","The process of cloud formation","An increase in wind speed"],a:0},
+      {q:"Which international agreement aims to limit global temperature rise well below 2°C and pursue efforts for 1.5°C?",c:["Montreal Protocol","Paris Agreement","Kyoto Protocol","Stockholm Convention"],a:1},
+      {q:"Which indicator is most commonly used to represent global warming relative to pre-industrial levels?",c:["Sea-level rise","Global mean surface temperature increase","Annual rainfall total","Number of hurricanes"],a:1},
+      {q:"In India, which sector is a major emitter of greenhouse gases due to energy use?",c:["IT services","Coal-based electricity","Handicrafts","Fisheries"],a:1},
+      {q:"What is a key consequence of glacier retreat in the Himalaya?",c:["Permanent increase in glacier mass","Short-term rise then long-term reduction in river flow","Immediate forest expansion","Immediate sea level drop"],a:1},
+      {q:"What is a key source of uncertainty in climate model projections?",c:["Solar constant","Future emissions & climate sensitivity","Daily weather forecasts","Moon phases"],a:1},
+      {q:"Which concept describes additional warming from feedbacks like reduced albedo when ice melts?",c:["Negative feedback","Positive feedback","Static equilibrium","Forced neutrality"],a:1},
+      {q:"Which gas has a higher warming potential per molecule than CO₂ but is less abundant?",c:["Nitrous oxide (N₂O)","Oxygen (O₂)","Argon (Ar)","Nitrogen (N₂)"],a:0},
+      {q:"Which Indian phenomenon exacerbates air quality and interacts with climate?",c:["Aerosols & biomass burning affecting monsoon","Tectonic uplift","Solar flares","Deep ocean currents"],a:0},
+
+      // Quiz12 (questions 111–120)
+      {q:"Which sector in India is most vulnerable to climate impacts?",c:["Agriculture","Heavy industry","Space research","Telecommunications"],a:0},
+      {q:"Which adaptation helps farmers manage changing rainfall?",c:["Always same cropping calendar","Climate-smart agriculture","Ban crop rotation","Remove weather stations"],a:1},
+      {q:"What are Nationally Determined Contributions (NDCs)?",c:["UN security protocols","Country pledges under Paris Agreement","A type of renewable energy","A geological measure"],a:1},
+      {q:"Which mitigation reduces emissions at source by changing energy supply?",c:["Afforestation","Renewable electricity (solar, wind)","Blocking rivers","Importing coal"],a:1},
+      {q:"Which financing supports developing countries in adaptation & mitigation?",c:["Green Climate Fund & bilateral finance","Charity donations","Domestic taxes only","Unrelated UN treaties"],a:0},
+      {q:"Which is a co-benefit of shifting to clean energy?",c:["Worse air pollution","Better health & less air pollution","Lower yields","More congestion"],a:1},
+      {q:"What does 'loss and damage' mean in climate policy?",c:["Financial terms","Irreversible impacts needing support","Mitigation technique","Ocean acidification"],a:1},
+      {q:"Which policy reduces emissions from transport?",c:["Public transport, EVs & efficiency standards","Encouraging solo car use","Ban buses","Remove bike lanes"],a:0},
+      {q:"Why are mangroves & wetlands important?",c:["Raise vulnerability","Provide storm buffering, carbon storage & biodiversity","Raise temperatures","Stop rain"],a:1},
+      {q:"Which statement about climate justice is correct?",c:["All nations emitted equally","Vulnerable populations face disproportionate impacts","Only rich nations affected","Justice isn’t part of talks"],a:1},
+
+/* -----------------------------
+   Air Pollution — Quizzes 13 & 14 (20)
+   Converted from Air Pollution file
+   ----------------------------- */
+      // Quiz13 (questions 121–130)
+      {q:"Which fine particulate is most strongly associated with mortality from air pollution and is a key indicator for air quality?",c:["PM10 (particles ≤10 µm)","PM2.5 (particles ≤2.5 µm)","Ozone (O₃)","SO₂ (sulfur dioxide)"],a:1},
+      {q:"Which pollutant is primarily formed by photochemical reactions involving VOCs and NOₓ in sunlight?",c:["Carbon monoxide (CO)","Ozone (O₃)","Lead (Pb)","Sulfur dioxide (SO₂)"],a:1},
+      {q:"Which source contributes the largest share of ambient PM₂.₅ in many Indian cities (seasonal peak due to burning)?",c:["Transport exhaust","Industrial point sources","Crop residue and biomass burning / domestic burning","Volcanic emissions"],a:2},
+      {q:"AQI (Air Quality Index) reports air quality using categories. Which of the following is the correct interpretation of a very high AQI (e.g., >250)?",c:["Good — no concern","Moderate — some concern","Unhealthy/Very Unhealthy — health warnings for the public","Excellent — safe for everyone"],a:2},
+      {q:"Which international guideline sets reference exposures for PM2.5 and PM10 to protect health (recently tightened)?",c:["WHO Air Quality Guidelines","UNESCO Clean Air Code","IPCC Emissions Protocol","Stockholm Convention"],a:0},
+      {q:"In urban India, which human activity is the single largest contributor to NOₓ emissions?",c:["Agricultural burning","Road transport (vehicles)","Household waste disposal","Residential fireworks"],a:1},
+      {q:"Which instrument or network commonly provides ground-based continuous air quality monitoring in cities (measuring PM, gases)?",c:["CCTV cameras","Continuous Ambient Air Quality Monitoring Stations (CAAQMS)","Seismic sensors","GPS trackers"],a:1},
+      {q:"What is the typical unit used to report concentration of PM2.5 and gaseous pollutants in air quality data?",c:["µg/m³ (micrograms per cubic metre)","ppm (parts per million) only","g/L","mg/kg"],a:0},
+      {q:"During winter months in northern India, why do PM2.5 levels often spike compared to summer?",c:["More rainfall cleans the air","Stronger winds disperse pollutants","Stable boundary layer and increased local emissions (heating, burning, less dispersion)","Plants absorb more particulates"],a:2},
+      {q:"Satellite remote sensing helps monitor air pollution over large areas. Which of the following is a limitation of satellites for PM2.5 estimation?",c:["Cannot see at night","They measure column aerosol optical depth which needs models to convert to surface PM2.5","Satellites give real-time street-level readings","Satellites replace the need for ground monitors entirely"],a:1},
+
+      // Quiz14 (questions 131–140)
+      {q:"Long-term exposure to ambient air pollution (PM2.5) is most strongly linked to which health outcomes?",c:["Improved lung function","Respiratory and cardiovascular disease, and premature mortality","Only skin irritation","Better immunity"],a:1},
+      {q:"Which policy / programme in India aims to improve air quality in non-attainment cities through city-specific action plans (launched 2019)?",c:["National Clean Air Programme (NCAP)","Swachh Bharat Mission","Make in India","Atal Mission"],a:0},
+      {q:"What is BS-VI (Bharat Stage VI) primarily about?",c:["Solid waste management standards","Vehicular emission standards (fuel & engine norms)","Noise pollution norms","Forest conservation"],a:1},
+      {q:"Which short-term intervention has been used in Delhi to reduce vehicular emissions during severe pollution episodes?",c:["Odd–even vehicle rationing","Banning all public transport","Promoting two-stroke engines","Increasing mining activity"],a:0},
+      {q:"Which activity is an important practical solution to reduce winter-season agricultural stubble-burning emissions in North India?",c:["Open field burning at dusk","Promote in-situ management like Happy Seeder, straw incorporation, and incentives for residue management","Double the fertilizer application","Convert all fields to concrete"],a:1},
+      {q:"Which of the following is NOT a co-benefit of reducing air pollution?",c:["Lower health care burden and mortality","Improved crop yields (less ozone damage)","Higher greenhouse gas emissions","Increased worker productivity"],a:2},
+      {q:"Which monitoring metric gives an immediate picture of health risk and is often used in public advisories?",c:["AQI (Air Quality Index)","GDP growth rate","Forest cover percent","Electricity consumption"],a:0},
+      {q:"Which technological solution directly reduces emissions from power plants and industrial stacks?",c:["Electrostatic precipitators and flue gas desulfurization","Installing mirrors","Planting trees on stacks","Switching to coal with higher sulfur"],a:0},
+      {q:"What is a major challenge in air pollution management in many Indian cities?",c:["Single source only (easy to fix)","Multiple sectors and local + regional sources plus meteorological variability","No international guidance exists","Air pollution is only seasonal and negligible"],a:1},
+      {q:"Which stakeholder action can most rapidly reduce urban transport emissions?",c:["Promoting public transport & non-motorized transport plus cleaner vehicle fuels and electric vehicles","Removing all sidewalks","Building more landfills","Expanding coal power plants in cities"],a:0},
+
+/* -----------------------------
+   Dustbin — Quizzes 15 & 16 (20)
+   Converted from Dustbin file
+   ----------------------------- */
+      // Quiz15 (questions 141–150)
+      {q:"What is the main purpose of using three different dustbins in India?",c:["To decorate homes","For proper segregation of waste","For selling bins","To confuse people"],a:1},
+      {q:"Which waste should be put in the Green Bin?",c:["Plastic bottles","Kitchen scraps and food waste","Broken glass","Old newspapers"],a:1},
+      {q:"Which waste should be put in the Blue Bin?",c:["Fruit peels","Used tea leaves","Paper, plastics, metals and recyclables","Medical syringes"],a:2},
+      {q:"Which bin is used for hazardous/biomedical waste?",c:["Green","Blue","Yellow","Red"],a:2},
+      {q:"Why is waste segregation important?",c:["It makes garbage piles look nicer","It helps recycling, reduces landfill and pollution","It avoids buying bins","It creates more jobs only"],a:1},
+      {q:"Which is NOT meant for Green Bin?",c:["Vegetable peels","Meat waste","Plastic wrapper","Leftover rice"],a:2},
+      {q:"Common mistake people make with Blue Bin?",c:["Putting recyclables like paper","Mixing food waste with recyclables","Using it only for plastics","Washing recyclables before disposal"],a:1},
+      {q:"What symbol is often used to remind segregation?",c:["Skull symbol","♻️ Recycling symbol","Red cross","Warning sign"],a:1},
+      {q:"Which dustbin helps in composting?",c:["Green Bin","Blue Bin","Yellow Bin","None"],a:0},
+      {q:"Segregating waste at home is:",c:["Only for industries","Optional","The responsibility of every citizen","Against rules"],a:2},
+
+      // Quiz16 (questions 151–160)
+      {q:"What should go in the Yellow Bin?",c:["Plastic bottles","Food waste","Hazardous and biomedical waste","Paper"],a:2},
+      {q:"Example of Yellow Bin waste?",c:["Fruit peel","Newspaper","Used bandages and sanitary waste","Metal can"],a:2},
+      {q:"Why is hazardous waste kept separately?",c:["Because it smells bad","It requires special handling to prevent health risks","It is lighter","For decoration"],a:1},
+      {q:"Which city is known for implementing a 3-bin system successfully?",c:["Bengaluru","Delhi","London","New York"],a:0},
+      {q:"What happens if we mix all waste together?",c:["It is easy to recycle","It reduces pollution","It makes recycling difficult and increases pollution","It helps composting"],a:2},
+      {q:"How does proper segregation impact the environment?",c:["Increases landfill","Reduces pollution and supports recycling","Kills trees","Wastes resources"],a:1},
+      {q:"Which bin reduces risk of infection spread?",c:["Green","Blue","Yellow","All"],a:2},
+      {q:"As a citizen, your role in segregation is:",c:["Ignore it","Follow rules and educate others","Burn waste at home","Leave it to government only"],a:1},
+      {q:"What is produced when Green Bin waste is composted?",c:["Plastic","Manure/compost","Metals","Sand"],a:1},
+      {q:"Segregation supports:",c:["Sustainable waste management and circular economy","Only landfill increase","Only pollution","No effect"],a:0},
+
+/* -----------------------------
+   Water Pollution — Quizzes 17 & 18 (20)
+   Converted from Water Pollution file (note: ans values mapped to option index)
+   ----------------------------- */
+      // Quiz17 (questions 161–170)
+      {q:"What percentage of India’s surface water is unfit for consumption?",c:["50%","60%","70%","80%"],a:2},
+      {q:"How many of India’s 605 rivers are heavily polluted?",c:["25%","40%","50%+","70%"],a:2},
+      {q:"How many million liters of untreated wastewater enter water bodies daily?",c:["10M","20M","30M","40M"],a:3},
+      {q:"What percentage of sewage in India is treated?",c:["15%","28%","40%","50%"],a:1},
+      {q:"Which sectors release toxic effluents into rivers?",c:["IT","Textiles & Chemicals","Banking","Education"],a:1},
+      {q:"What % of groundwater sources are contaminated with arsenic?",c:["10%","15%","20%","25%"],a:2},
+      {q:"Which Indian river is considered one of the most polluted in the world?",c:["Ganga","Yamuna","Godavari","Brahmaputra"],a:1},
+      {q:"Which state has the highest number of polluted river stretches?",c:["Maharashtra","Uttar Pradesh","Tamil Nadu","Bihar"],a:0},
+      {q:"What fraction of wastewater treatment plants in India are non-functional?",c:["1/4","1/3","1/2","2/3"],a:1},
+      {q:"Which Supreme Court initiative monitors river pollution?",c:["Namami Gange","MC Mehta PIL","Swachh Bharat","Clean Rivers Act"],a:1},
+
+      // Quiz18 (questions 171–180)
+      {q:"How many Indians lack access to safe water?",c:["50M","100M","163M","200M"],a:2},
+      {q:"What % of communicable diseases are linked to unsafe water?",c:["10%","15%","21%","30%"],a:2},
+      {q:"How many child deaths occur annually due to diarrhea?",c:["0.5M","1M","1.5M","2M"],a:2},
+      {q:"What is the annual economic cost of water pollution in India?",c:["$20B","$50B","$80B","$100B"],a:2},
+      {q:"By what year will India’s water demand exceed supply by 70%?",c:["2025","2030","2040","2050"],a:1},
+      {q:"Which Indian city faces the worst groundwater depletion?",c:["Delhi","Chennai","Bangalore","Hyderabad"],a:1},
+      {q:"What % of rural households still lack access to piped water?",c:["25%","35%","45%","55%"],a:2},
+      {q:"Which Indian program aims to provide tap water to all households?",c:["Jal Jeevan Mission","Namami Gange","Water for All","Har Ghar Nal"],a:0},
+      {q:"How much of India’s GDP is lost due to water-related health issues?",c:["1%","2%","3%","5%"],a:1},
+      {q:"Which pollutant is most common in industrial effluents?",c:["Mercury","Lead","Chromium","All of these"],a:3},
+
+/* -----------------------------
+   General Knowledge — Quiz 19 (10)
+   Converted from General Knowledge file
+   ----------------------------- */
+      {q:"Which is the largest mammal?",c:["Elephant","Blue Whale","Giraffe","Shark"],a:1},
+      {q:"The process of plants making food is?",c:["Respiration","Photosynthesis","Digestion","Transpiration"],a:1},
+      {q:"Capital of Japan?",c:["Beijing","Seoul","Tokyo","Bangkok"],a:2},
+      {q:"Which gas is most abundant?",c:["Oxygen","Nitrogen","Carbon Dioxide","Hydrogen"],a:1},
+      {q:"Who wrote 'Romeo and Juliet'?",c:["Shakespeare","Milton","Wordsworth","Keats"],a:0},
+      {q:"Which planet is the Red Planet?",c:["Mars","Jupiter","Venus","Saturn"],a:0},
+      {q:"What is H2O commonly known as?",c:["Salt","Oxygen","Water","Hydrogen"],a:2},
+      {q:"Speed of light?",c:["3x10^5 km/s","300 km/s","1500 m/s","30,000 km/s"],a:0},
+      {q:"Who is the Father of the Nation (India)?",c:["Nehru","Mahatma Gandhi","Patel","Ambedkar"],a:1},
+      {q:"The smallest prime number?",c:["0","1","2","3"],a:2}
+    ];
+
+    /* ========== App State ========== */
+    let QUIZ=[], idx=0, user={}, saved={}, submitted=false;
+    const qcard=document.getElementById("qcard"), prog=document.getElementById("prog"), review=document.getElementById("review"), qnav=document.getElementById("qnav");
+
+    function startQuiz(n){
+      // n corresponds to quiz number 1..19
+      QUIZ = ALL.slice((n-1)*10, n*10);
+      idx=0; user={}; saved={}; submitted=false;
+      document.getElementById("menu").style.display="none";
+      document.getElementById("quizArea").style.display="block";
+      review.style.display="none";
+      render();
+    }
+
+    function render(){
+      const q = QUIZ[idx];
+      if(!q) return;
+      const sel = user[idx];
+      qcard.innerHTML = `<div class="question">Q${idx+1}. ${q.q}</div>
+        <div class="options">
+          ${q.c.map((opt, i) => `<label><input type="radio" name="opt" value="${i}" ${sel===i?"checked":""} ${submitted?"disabled":""}><span>${opt}</span></label>`).join("")}
+        </div>`;
+      if(!submitted){
+        qcard.querySelectorAll("input").forEach(r=>r.onchange = e=>{
+          user[idx] = Number(e.target.value);
+          renderNav();
+          updateProgress();
+        });
+      }
+      renderNav();
+      updateProgress();
+    }
+
+    function renderNav(){
+      qnav.innerHTML = "";
+      QUIZ.forEach((q,i)=>{
+        const b=document.createElement("button");
+        b.className="qbtn";
+        if(user[i]!==undefined) b.classList.add("answered");
+        else if(saved[i]) b.classList.add("saved");
+        b.textContent = i+1;
+        b.onclick = () => { idx=i; render(); };
+        qnav.appendChild(b);
+      });
+    }
+
+    function updateProgress(){
+      prog.style.width = (Object.keys(user).length / QUIZ.length * 100) + "%";
+      document.getElementById("savedBtn").style.display = Object.keys(saved).some(k => user[k]===undefined) ? "inline-block" : "none";
+    }
+
+    function prevQ(){ if(idx>0){ idx--; render(); } }
+    function nextQ(){ if(idx<QUIZ.length-1){ idx++; render(); } }
+    function saveQ(){ saved[idx]=true; renderNav(); updateProgress(); }
+    function showSaved(){ const list = Object.keys(saved).filter(k => user[k]===undefined); if(list.length){ idx = Number(list[0]); render(); } }
+
+    function submitQuiz(){
+      if(Object.keys(user).length < QUIZ.length){
+        alert("Answer all before submitting!");
+        return;
+      }
+      submitted = true;
+      let score = 0;
+      let rows = QUIZ.map((q,i)=>{
+        const ua = user[i];
+        if(ua === q.a) score++;
+        return `<tr><td>${q.q}</td><td>${q.c[ua]}</td><td>${q.c[q.a]}</td></tr>`;
+      }).join("");
+      review.innerHTML = `<h3>Review — Score ${score}/${QUIZ.length}</h3>
+        <table><tr><th>Question</th><th>Your Answer</th><th>Correct</th></tr>${rows}</table>`;
+      review.style.display="block";
+    }
+
+    function backMenu(){
+      document.getElementById("quizArea").style.display="none";
+      document.getElementById("menu").style.display="grid";
+    }
+
+    document.getElementById("modeBtn").onclick = () => {
+      document.body.classList.toggle("dark");
+      document.getElementById("modeBtn").textContent = document.body.classList.contains("dark") ? "☀ Light" : "🌙 Dark";
+    }
+
+    // init: show menu
+    (function init(){
+      document.getElementById("menu").style.display = "grid";
+      document.getElementById("quizArea").style.display = "none";
+      review.style.display = "none";
+    })();
+  </script>
+</body>
+</html>
