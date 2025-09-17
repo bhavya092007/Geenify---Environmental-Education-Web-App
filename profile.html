@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Profile</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Custom scroll for modal */
+    .modal-open {
+      overflow: hidden;
+    }
+  </style>
+</head>
+<body class="bg-gray-50 min-h-screen flex flex-col">
+
+  <!-- Top Bar -->
+  <header class="w-full flex items-center justify-between p-4 bg-white shadow">
+   <a href="index.html"> <button class="text-gray-600 text-xl">←</button></a>
+    <h1 class="text-lg font-semibold">Profile</h1>
+    <div class="w-6"></div>
+  </header>
+
+  <!-- Profile Card -->
+  <main class="flex-1 flex items-center justify-center p-4">
+    <div class="bg-white shadow-lg rounded-xl p-6 w-full max-w-sm text-center">
+      <img id="profile-pic" src="https://via.placeholder.com/150" alt="Profile Picture" class="w-24 h-24 rounded-full mx-auto mb-4 object-cover" />
+      <h2 id="profile-name" class="text-xl font-semibold">Sophia Carter</h2>
+      <p id="profile-email" class="text-gray-600">sophia@example.com</p>
+      <p id="profile-dob" class="text-gray-500 text-sm">July 15, 1992</p>
+      <p id="profile-bio" class="mt-2 text-gray-500 text-sm">This is a short bio about Sophia Carter.</p>
+      <button onclick="openModal()" class="mt-4 bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg">
+        Edit Profile
+      </button>
+    </div>
+  </main>
+
+  <!-- Bottom Nav -->
+  <footer class="w-full bg-white shadow-inner flex justify-around py-3">
+  <a href="index.html">  <button class="flex flex-col items-center text-blue-500">
+      <span class="material-icons">home</span>
+      <span class="text-xs">Home</span>
+    </button>
+  </a>
+    <button class="flex flex-col items-center text-gray-500">
+      <span class="material-icons">person</span>
+      <span class="text-xs">Profile</span>
+    </button>
+  </footer>
+
+  <!-- Modal -->
+  <div id="editModal" class="hidden fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50">
+    <div class="bg-white rounded-xl shadow-lg w-full max-w-md p-6 relative">
+      <h2 class="text-xl font-semibold mb-4">Edit Profile</h2>
+      <form id="editProfileForm" class="space-y-4">
+        <!-- Profile Image Upload -->
+        <div class="flex flex-col items-center">
+          <img id="preview-pic" src="https://via.placeholder.com/150" class="w-24 h-24 rounded-full object-cover mb-2" />
+          <input type="file" id="photoInput" accept="image/*" class="text-sm text-gray-500" />
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium">Name</label>
+          <input type="text" id="nameInput" class="w-full border rounded-lg px-3 py-2" value="Sophia Carter" />
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium">Email</label>
+          <input type="email" id="emailInput" class="w-full border rounded-lg px-3 py-2" value="sophia@example.com" />
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium">Date of Birth</label>
+          <input type="date" id="dobInput" class="w-full border rounded-lg px-3 py-2" value="1992-07-15" />
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium">Bio</label>
+          <textarea id="bioInput" class="w-full border rounded-lg px-3 py-2">This is a short bio about Sophia Carter.</textarea>
+        </div>
+
+        <div class="flex justify-end gap-2">
+          <button type="button" onclick="closeModal()" class="px-4 py-2 rounded-lg border">Cancel</button>
+          <button type="submit" class="px-4 py-2 rounded-lg bg-blue-500 text-white">Save</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Google Material Icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <!-- Script -->
+  <script>
+    const modal = document.getElementById("editModal");
+    const body = document.body;
+
+    function openModal() {
+      modal.classList.remove("hidden");
+      body.classList.add("modal-open");
+    }
+
+    function closeModal() {
+      modal.classList.add("hidden");
+      body.classList.remove("modal-open");
+    }
+
+    // Preview uploaded image
+    document.getElementById("photoInput").addEventListener("change", function(e) {
+      const file = e.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function(event) {
+          document.getElementById("preview-pic").src = event.target.result;
+        };
+        reader.readAsDataURL(file);
+      }
+    });
+
+    // Update profile on save
+    document.getElementById("editProfileForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      document.getElementById("profile-name").textContent = document.getElementById("nameInput").value;
+      document.getElementById("profile-email").textContent = document.getElementById("emailInput").value;
+      document.getElementById("profile-dob").textContent = new Date(document.getElementById("dobInput").value).toDateString();
+      document.getElementById("profile-bio").textContent = document.getElementById("bioInput").value;
+      document.getElementById("profile-pic").src = document.getElementById("preview-pic").src;
+      closeModal();
+    });
+  </script>
+</body>
+</html>
+
+
+
