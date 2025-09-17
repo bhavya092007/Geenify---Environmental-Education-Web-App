@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Help & Support - Greenify</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="help3.css">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'env-green': {
+              50: '#f0fdf4',
+              100: '#dcfce7',
+              200: '#bbf7d0',
+              300: '#86efac',
+              400: '#4ade80',
+              500: '#22c55e',
+              600: '#16a34a',
+              700: '#15803d',
+              800: '#166534',
+              900: '#14532d',
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="min-h-screen text-env-green-900">
+  <!-- Back Button -->
+  <a href="homepage.html">
+    <button
+      class="flex items-center px-4 py-2 rounded-full bg-gray-200 text-gray-800 hover:bg-gray-300 dark:bg-gray-700 dark:text-white dark:hover:bg-gray-600 transition-all w-full sm:w-auto"
+    >
+      ⬅ Back
+    </button>
+  </a>
+
+  <div class="max-w-4xl mx-auto px-4 py-8">
+    <!-- Welcome Message -->
+    <section class="card">
+      <div class="text-center mb-6">
+        <div class="mb-4">
+          <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/04b648ac-a30a-434a-be2c-da1f70fb3fd7.png" alt="Colorful illustration" class="w-full h-48 object-cover rounded-lg shadow-lg">
+        </div>
+        <h1 class="text-4xl font-bold text-env-green-800 mb-4">Help & Support</h1>
+        <p class="text-lg">You're in the right place for help with learning about the environment or using our website. We're here to guide you through fun activities and educational resources!</p>
+      </div>
+    </section>
+
+    <!-- FAQs -->
+    <section class="card">
+      <h2 class="text-2xl font-semibold text-env-green-800 mb-6 flex items-center">
+        <i class="fas fa-question-circle icon-leaf mr-2"></i> Frequently Asked Questions
+      </h2>
+      
+      <div class="faq-category mb-6">
+        <h3 class="text-xl font-medium text-env-green-700 mb-4">Using the Website</h3>
+        <div class="faq-item">
+          <details class="p-4 bg-env-green-50 rounded-lg cursor-pointer">
+            <summary class="font-semibold list-none">How do I create an account?</summary>
+            <p class="mt-2">Click the "Sign Up" button and enter your details. You'll get a confirmation email to activate it.</p>
+          </details>
+        </div>
+        <div class="faq-item">
+          <details class="p-4 bg-env-green-50 rounded-lg cursor-pointer">
+            <summary class="font-semibold list-none">How do I navigate the site?</summary>
+            <p class="mt-2">Use the top menu to explore sections, or search for topics using the search bar.</p>
+          </details>
+        </div>
+        <div class="faq-item">
+          <details class="p-4 bg-env-green-50 rounded-lg cursor-pointer">
+            <summary class="font-semibold list-none">What if I forget my password?</summary>
+            <p class="mt-2">Use the "Forgot Password" link on the login page to reset via email.</p>
+          </details>
+        </div>
+      </div>
+
+      <div class="faq-category mb-6">
+        <h3 class="text-xl font-medium text-env-green-700 mb-4">Learning Resources</h3>
+        <div class="faq-item">
+          <details class="p-4 bg-env-green-50 rounded-lg cursor-pointer">
+            <summary class="font-semibold list-none">Where are the study materials?</summary>
+            <p class="mt-2">Check the "Start Learning" page for lessons, videos, and worksheets.</p>
+          </details>
+        </div>
+        <div class="faq-item">
+          <details class="p-4 bg-env-green-50 rounded-lg cursor-pointer">
+            <summary class="font-semibold list-none">Are these for all ages?</summary>
+            <p class="mt-2">Yes! Materials are tailored for kids, teens, and adults interested in the environment.</p>
+          </details>
+        </div>
+      </div>
+
+      <div class="faq-category mb-6">
+        <h3 class="text-xl font-medium text-env-green-700 mb-4">Fun Activities</h3>
+        <div class="faq-item">
+          <details class="p-4 bg-env-green-50 rounded-lg cursor-pointer">
+            <summary class="font-semibold list-none">How do I access games and quizzes?</summary>
+            <p class="mt-2">Visit the "Eco Fun Zone" for interactive games and challenges.</p>
+          </details>
+        </div>
+        <div class="faq-item">
+          <details class="p-4 bg-env-green-50 rounded-lg cursor-pointer">
+            <summary class="font-semibold list-none">Can I join eco-challenges?</summary>
+            <p class="mt-2">Yes! Participate in monthly challenges and share with the community.</p>
+          </details>
+        </div>
+      </div>
+
+      <div class="faq-category">
+        <h3 class="text-xl font-medium text-env-green-700 mb-4">Parent & Teacher Guides</h3>
+        <div class="faq-item">
+          <details class="p-4 bg-env-green-50 rounded-lg cursor-pointer">
+            <summary class="font-semibold list-none">Where are the guides?</summary>
+            <p class="mt-2">Find them in the "Teacher & Parent Area" with lesson plans and tips.</p>
+          </details>
+        </div>
+        <div class="faq-item">
+          <details class="p-4 bg-env-green-50 rounded-lg cursor-pointer">
+            <summary class="font-semibold list-none">How to get involved?</summary>
+            <p class="mt-2">Contact us for partnerships and resource contributions.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Support -->
+    <section class="card">
+      <h2 class="text-2xl font-semibold text-env-green-800 mb-6 flex items-center">
+        <i class="fas fa-envelope icon-leaf mr-2"></i> Contact Support
+      </h2>
+      <p class="mb-4">Need more help? Reach out—we're here to assist!</p>
+      <form id="contact-form" class="flex flex-col gap-4">
+        <input type="text" id="name" placeholder="Your Name" class="input-field p-3 rounded-lg" required>
+        <input type="email" id="email" placeholder="Your Email" class="input-field p-3 rounded-lg" required>
+        <textarea id="message" placeholder="How can we help?" rows="4" class="input-field p-3 rounded-lg" required></textarea>
+        <button type="submit" class="btn text-white font-semibold py-3 px-6 rounded-lg">Send Message</button>
+      </form>
+      <div class="mt-6 text-sm">
+        <p><i class="fas fa-clock icon-leaf mr-1"></i> Email: greenifyindia01@gmail.com</p>
+      </div>
+    </section>
+
+    <!-- Useful Links -->
+    <section class="card">
+      <h2 class="text-2xl font-semibold text-env-green-800 mb-6 flex items-center">
+        <i class="fas fa-link icon-leaf mr-2"></i> Useful Links
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <a href="homepage2.html" class="text-center hover:text-env-green-700 transition-colors">
+          <i class="fas fa-book text-3xl icon-leaf mb-2"></i>
+          <p class="font-semibold">Start Learning</p>
+        </a>
+        <a href="games.html" class="text-center hover:text-env-green-700 transition-colors">
+          <i class="fas fa-gamepad text-3xl icon-leaf mb-2"></i>
+          <p class="font-semibold">Eco Fun Zone</p>
+        </a>
+        <a href="#teacher-parent-area" class="text-center hover:text-env-green-700 transition-colors">
+          <i class="fas fa-users text-3xl icon-leaf mb-2"></i>
+          <p class="font-semibold">Teacher & Parent Area</p>
+        </a>
+      </div>
+    </section>
+
+    <!-- Feedback -->
+    <section class="card">
+      <h2 class="text-2xl font-semibold text-env-green-800 mb-6 text-center">Was this helpful?</h2>
+      <div class="flex justify-center gap-8 mb-4">
+        <button id="thumbs-up" class="feedback-icon"><i class="fas fa-thumbs-up"></i></button>
+        <button id="thumbs-down" class="feedback-icon"><i class="fas fa-thumbs-down"></i></button>
+      </div>
+      <textarea id="feedback-text" placeholder="Suggestions or comments?" rows="3" class="w-full input-field p-3 rounded-lg"></textarea>
+      <button id="submit-feedback" class="btn text-white font-semibold py-2 px-4 rounded-lg mt-4">Submit Feedback</button>
+    </section>
+
+    <!-- Eco Tip -->
+    <section class="card eco-tip">
+      <h2 class="text-2xl font-semibold text-center mb-4">Eco Tip of the Week</h2>
+      <p id="eco-tip-text" class="text-center text-lg italic">Plant a seed today and watch it grow!</p>
+    </section>
+
+    <!-- Illustration -->
+    <section class="card text-center">
+      <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/a97ab03e-c58c-4061-a5e6-4c165b285153.png" alt="Vivid scene of diverse children planting trees" class="w-full h-96 object-cover rounded-lg">
+    </section>
+  </div>
+
+  <script>
+    // Eco tips rotation
+    const tips = [
+      "Plant a seed today and watch it grow!",
+      "Reuse your old notebooks creatively.",
+      "Turn off lights to save energy.",
+      "Walk or bike when possible.",
+      "Save water by turning off the tap.",
+      "Start a small compost for scraps.",
+      "Create a garden friendly to bees."
+    ];
+    let currentTip = 0;
+    const tipElement = document.getElementById('eco-tip-text');
+    setInterval(() => {
+      currentTip = (currentTip + 1) % tips.length;
+      tipElement.textContent = tips[currentTip];
+    }, 8000);
+
+    // Feedback submission
+    document.getElementById('submit-feedback').addEventListener('click', () => {
+      alert('Thank you for your feedback!');
+    });
+
+    // Form validation and submission
+    document.getElementById('contact-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const message = document.getElementById('message').value.trim();
+      if (!name || !email || !message) {
+        alert('Please fill in all fields.');
+        return;
+      }
+      alert('Message sent successfully!');
+      this.reset();
+    });
+
+    // Feedback buttons toggle
+    let selectedFeedback = null;
+    const thumbsUp = document.getElementById('thumbs-up');
+    const thumbsDown = document.getElementById('thumbs-down');
+    thumbsUp.addEventListener('click', () => {
+      thumbsUp.classList.add('text-env-green-600');
+      thumbsDown.classList.remove('text-env-green-600');
+      selectedFeedback = 'up';
+    });
+    thumbsDown.addEventListener('click', () => {
+      thumbsDown.classList.add('text-env-green-600');
+      thumbsUp.classList.remove('text-env-green-600');
+      selectedFeedback = 'down';
+    });
+
+    // Smooth animations for details
+    const detailsElements = document.querySelectorAll('details');
+    detailsElements.forEach(detail => {
+      detail.addEventListener('toggle', () => {
+        if (detail.open) {
+          const content = detail.querySelector('p');
+          content.style.opacity = '0';
+          setTimeout(() => {
+            content.style.opacity = '1';
+            content.style.transition = 'opacity 0.3s ease';
+          }, 10);
+        }
+      });
+    });
+  </script>
+  <script src="theme.js"></script>
+</body>
+</html>
