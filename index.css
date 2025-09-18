@@ -427,71 +427,56 @@ body.dark-mode .info-section .text-content ul li {
 }
 
 /* ======================
-   RESPONSIVE
+   RESPONSIVE DESIGN
 ====================== */
 @media (max-width: 768px) {
-    header {
-        flex-wrap: wrap; /* allow logo + right side to stack if needed */
-        justify-content: space-between;
-        padding: 10px 15px;
-    }
-
-    /* ❌ remove hamburger completely */
-    .hamburger {
-        display: none !important;
-    }
-
-    /* hide nav links on mobile */
-    nav.navigation {
-        display: none;
-    }
-
-    /* Hero Section */
-    .hero {
-        flex-direction: column;
-        text-align: center;
-        padding: 20px;
-        gap: 15px;
-    }
-
-    .hero-image {
-        order: -1;
-        margin-bottom: 15px;
-        display: flex;
-        justify-content: center;
-    }
-
-    .hero-image img {
-        max-width: 90%;
-        height: auto;
-    }
-
-    /* Info Sections */
     .info-section,
     .info-section.reverse {
-        flex-direction: column !important;
-        padding: 20px;
-        gap: 20px;
+        flex-direction: column; /* stack text & image */
         text-align: center;
+        padding: 20px;
     }
 
     .info-section .text-content,
     .info-section .image-content {
-        flex-basis: 100% !important;
-        width: 100% !important;
+        flex: 0 1 100%;
     }
 
+    .info-section .text-content h2 {
+        font-size: 1.8rem;
+    }
+
+    .info-section .text-content ul li {
+        font-size: 1rem;
+        justify-content: center;
+    }
+
+    .info-section .image-content img {
+        margin-top: 20px;
+        max-width: 90%;
+    }
+}
+
+@media (max-width: 480px) {
     .info-section .text-content h2 {
         font-size: 1.5rem;
     }
 
-    .info-section .text-content ul {
-        padding-left: 0;
-        list-style-position: inside;
+    .info-section .text-content ul li {
+        font-size: 0.95rem;
     }
+    /* --- ADD this block to the END of your CSS file --- */
 
-    .info-section .text-content ul li strong {
-        display: block;
-        margin-bottom: 5px;
-    }
+@media (max-width: 600px) {
+  .info-section .text-content ul li {
+    flex-direction: column; /* Stacks items vertically on small screens */
+    align-items: flex-start;  /* Aligns items to the left */
+    gap: 5px; /* Reduces the space between the stacked items */
+  }
+
+  .info-section .text-content ul li strong {
+    width: auto; /* Resets the width so the title behaves normally */
+  }
 }
+}
+
