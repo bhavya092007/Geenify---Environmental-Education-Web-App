@@ -3,186 +3,220 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
+    <title>Greenify - Interactive Environmental Education</title>
     <link
       rel="icon"
+      href="images/logo-modified-removebg-preview.png"
       type="image/png"
       sizes="32x32"
-      href="images/logo-modified-removebg-preview.png"
     />
-    <title>Greenify - Environmental Studies for Students</title>
-    <!-- Link external CSS -->
     <link rel="stylesheet" href="index.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
   </head>
-  <body>
+  <body class="light">
     <header>
-      <!-- Brand: Logo + Text -->
-      <div class="brand">
-        <img
-          src="images/logo.jpg"
-          alt="Greenify Logo"
-          class="logo"
-        />
-        <span class="text">
-          <h2>Greenify</h2>
-        </span>
-      </div>
-
-      <!-- Right side group -->
-      <div class="group">
-        <!-- Navigation -->
-        <nav class="navigation" id="navMenu">
-          <a href="index.html">Home</a>
-          <a href="signup.html">Signup</a>
-          <a href="about.html">About</a>
-        </nav>
-
-        <!-- Theme Toggle Button -->
-        <button id="themeToggle" class="theme-toggle">🌙</button>
-
-        <!-- Profile Dropdown -->
-        <div class="profile-container">
-          <button id="dropdownBtn" class="profile-btn">
-            <img
-              src="https://i.pravatar.cc/40"
-              alt="User"
-              class="profile-pic"
-            />
-          </button>
-          <div id="dropdownMenu" class="dropdown-menu">
-            <a href="profile.html">Profile</a>
-            <a href="help3.html">Help & Support</a>
-            <a href="dashboard.html">Dashboard</a>
-            <a href="about.html">About us</a>
-            <a href="#">Logout</a>
-          </div>
+      <nav class="container">
+        <div class="nav-left">
+          <img
+            src="images/logo-modified-removebg-preview.png"
+            class="logo"
+            alt="Greenify Logo"
+            height="40"
+            width="40"
+          />
+          <span class="brand-name">Greenify</span>
         </div>
-      </div>
+
+        <!-- Hamburger -->
+        <div class="hamburger" id="hamburger">
+          <i class="fas fa-bars"></i>
+        </div>
+
+        <ul class="nav-links" id="nav-links">
+          <li><a href="about.html">About</a></li>
+          <li><a href="help3.html">Contact</a></li>
+        </ul>
+
+        <div class="nav-buttons">
+          <a href="signin.html" class="btn btn-secondary">Sign In</a>
+          <a href="homepage.html" class="btn btn-primary">Get Started</a>
+          <i id="theme-toggle" class="fas fa-moon theme-toggle"></i>
+        </div>
+      </nav>
     </header>
 
-    <!-- HERO SECTION -->
-    <section class="hero">
-      <div class="hero-text">
-        <h1>Environmental Studies for Students</h1>
-        <h2>
-          Greenify is a gamified learning platform designed to make
-          environmental education engaging, interactive, and impactful.
-        </h2>
-        <button onclick="goToHomepage()">Explore Now 🚀</button>
-      </div>
-      <div class="hero-image">
-        <img
-          src="images/index_photo_cover-removebg-preview.png"
-          alt="Students learning nature"
-          class="img"
-        />
-      </div>
-    </section>
+    <main>
+      <!-- Hero Section -->
+      <section class="hero-section">
+        <div class="container hero-content">
+          <div class="hero-text">
+            <span class="subtitle">Environmental Education Platform</span>
+            <h1>Learn About Our Planet Through Interactive Education</h1>
+            <p>
+              Greenify is a gamified learning platform designed to make
+              environmental education engaging, interactive, and impactful for
+              students everywhere.
+            </p>
+            <div class="hero-buttons">
+              <a href="homepage.html" class="btn btn-primary"
+                >Explore Now <i class="fas fa-arrow-right"></i
+              ></a>
+            </div>
+            <ul class="hero-features-list">
+              <li><i class="fas fa-check-circle"></i> Interactive Modules</li>
+              <li><i class="fas fa-check-circle"></i> Gamified Learning</li>
+              <li><i class="fas fa-check-circle"></i> Community Driven</li>
+            </ul>
+          </div>
+          <div class="hero-image">
+            <img
+              src="images/index_photo_cover-removebg-preview.png"
+              alt="Two women and a child learning together with plants"
+            />
+          </div>
+        </div>
+      </section>
 
-    <!-- REST OF YOUR CONTENT STAYS SAME -->
-    <!-- ... About sections, Footer ... -->
-    <div class="about-container">
-      <div class="info-section">
-        <div class="text-content">
-          <h2>What is Greenify? 🤔</h2>
-          <p>
-            <strong>Greenify</strong> is a dynamic and interactive web platform
-            dedicated to making environmental education fun, accessible, and
-            engaging for everyone. It's a one-stop destination where you can
-            learn about our planet, connect with a like-minded community, and
-            discover actionable ways to make a positive impact.
-          </p>
+      <!-- Info Sections -->
+      <section class="container">
+        <div class="info-section">
+          <div class="info-text">
+            <h2>What is Greenify? 🤔</h2>
+            <p>
+              Greenify is a digital platform that transforms environmental
+              education into a fun and interactive journey. Through gamification
+              and engaging content, learners understand real-world environmental
+              issues while enjoying the process.
+            </p>
+          </div>
+          <img src="images/what is greenify.png" alt="Greenify concept image" />
         </div>
-        <div class="image-content">
-          <img
-            src="images/what is greenify.png"
-            alt="A vibrant image representing the Greenify platform"
-          />
-        </div>
-      </div>
 
-      <div class="info-section reverse">
-        <div class="text-content">
-          <h2>What are the features of Greenify? 🌟</h2>
-          <ul>
-            <li>
-              <strong>🎓 Learning Modules</strong> Dive deep into specific
-              environmental topics.
-            </li>
-            <li>
-              <strong>🧩 Fun Quizzes</strong> Test your knowledge and earn
-              badges.
-            </li>
-            <li>
-              <strong>🎮 Engaging Games</strong> Learn complex concepts through
-              play.
-            </li>
-            <li>
-              <strong> 🤝  Thriving Community  </strong> Join forums and
-              participate in group challenges.
-            </li>
-            <li>
-              <strong>📰 Latest News</strong> Stay updated with positive
-              environmental news.
-            </li>
-            <li>
-              <strong>💡 Fun Facts</strong> Get your daily dose of amazing and
-              shareable facts.
-            </li>
-          </ul>
+        <div class="info-section">
+          <div class="info-text">
+            <h2>What is the Purpose of Greenify? 🎯</h2>
+            <p>
+              Our purpose is to create eco-conscious citizens by empowering
+              young learners with the knowledge and tools they need to make
+              sustainable choices. Together, we aim to drive positive
+              environmental impact globally.
+            </p>
+          </div>
+          <img src="images/purpose png.png" alt="Purpose illustration" />
         </div>
-        <div class="image-content">
-          <img
-            src="images/future 1.png"
-            alt="Collage of Greenify features like games, quizzes, and community icons"
-          />
-        </div>
-      </div>
 
+        <div class="info-section">
+          <div class="info-text">
+            <h2>Why Choose Greenify? ✅</h2>
+            <p>
+              Because learning about the environment should never feel boring.
+              Greenify combines fun, facts, and real-world challenges, making it
+              the perfect platform for schools, students, and eco-enthusiasts.
+            </p>
+          </div>
+          <img src="images/why greenify png.png" alt="Why choose Greenify" />
+        </div>
+      </section>
 
-      <div class="info-section">
-        <div class="text-content">
-          <h2>What is the purpose of Greenify? 🎯</h2>
-          <p>
-            The core purpose of Greenify is to
-            <strong>educate, engage, and empower</strong>. We break down complex
-            environmental issues, make learning an active experience, and give
-            you the confidence to make more sustainable choices in your daily
-            life.
-          </p>
+      <!-- Features Section -->
+      <section class="features-section">
+        <div class="container">
+          <div class="section-header">
+            <span class="subtitle">Platform Features</span>
+            <h2>What Makes Greenify Special?</h2>
+            <p>
+              Our platform combines gamification, community engagement, and
+              expert-curated content to create an unparalleled environmental
+              education experience.
+            </p>
+          </div>
+          <div class="features-content">
+            <div class="features-grid">
+              <div class="feature-card">
+                <i class="fas fa-book-open feature-icon"></i>
+                <h3>Learning Modules</h3>
+                <p>
+                  Dive deep into specific environmental topics with interactive
+                  lessons.
+                </p>
+              </div>
+              <div class="feature-card">
+                <i class="fas fa-puzzle-piece feature-icon"></i>
+                <h3>Fun Quizzes</h3>
+                <p>
+                  Test your knowledge and earn badges, reinforcing key concepts.
+                </p>
+              </div>
+              <div class="feature-card">
+                <i class="fas fa-gamepad feature-icon"></i>
+                <h3>Engaging Games</h3>
+                <p>Learn complex concepts through interactive games.</p>
+              </div>
+              <div class="feature-card">
+                <i class="fas fa-users feature-icon"></i>
+                <h3>Thriving Community</h3>
+                <p>Join forums and participate in group challenges.</p>
+              </div>
+              <div class="feature-card">
+                <i class="fas fa-newspaper feature-icon"></i>
+                <h3>Latest News</h3>
+                <p>Stay updated with positive environmental news.</p>
+              </div>
+              <div class="feature-card">
+                <i class="fas fa-lightbulb feature-icon"></i>
+                <h3>Fun Facts</h3>
+                <p>Get your daily dose of amazing and shareable facts.</p>
+              </div>
+              <div class="feature-card">
+                <i class="fas fa-lightbulb feature-icon"></i>
+                <h3>Fun Activities</h3>
+                <p>Get your daily dose of amazing and shareable facts.</p>
+              </div>
+              <div class="feature-card">
+                <i class="fas fa-rocket feature-icon"></i>
+                <h3>Challenges</h3>
+                <p>Get your daily dose of amazing and shareable facts.</p>
+              </div>
+            </div>
+            <div class="features-icon-display">
+              <!-- <img
+                src="images/greenify future.png"
+                alt="Grid of green educational icons"
+                height="auto"
+                width="300"
+              /> -->
+            </div>
+          </div>
         </div>
-        <div class="image-content">
-          <img
-            src="images/purpose png.png"
-            alt="Image showing people empowered and taking environmental action"
-          />
-        </div>
-      </div>
+      </section>
 
-      <div class="info-section reverse">
-        <div class="text-content">
-          <h2>Why choose Greenify? ✅</h2>
-          <p>
-            Greenify stands out by offering a unique, all-in-one approach. We
-            provide <strong>trustworthy information</strong> in a
-            <strong>positive and action-oriented</strong> way. You're not just
-            learning alone; you're joining a supportive community dedicated to
-            creating a healthier planet for everyone.
-          </p>
-        </div>
-        <div class="image-content">
-          <img
-            src="images/why greenify png.png"
-            alt="A person smiling while using the Greenify website on a laptop"
-          />
-        </div>
-      </div>
+      <!-- Emotional Donation CTA Section -->
+<section class="cta-section">
+  <div class="container cta-content">
+    <span class="subtitle">Make a Real Impact 🌱</span>
+    <h2>Help Us Protect Our Planet</h2>
+    <p class="donation-text">
+      Every small contribution brings us closer to a greener, healthier Earth. 
+      Your donation empowers students to learn about sustainability, plant trees, 
+      and take meaningful action to preserve the environment for future generations.
+    </p>
+    <div class="cta-buttons">
+      <a href="#" class="btn btn-primary">Donate 💚</a>
     </div>
+  </div>
+</section>
+
+
+    </main>
 
     <footer class="footer">
       <div class="footer-container">
@@ -243,49 +277,36 @@
       </div>
     </footer>
 
-
+    <!-- Theme Toggle Script -->
     <script>
-      // Profile dropdown
-      const dropdownBtn = document.getElementById("dropdownBtn");
-      const dropdownMenu = document.getElementById("dropdownMenu");
+      const toggleBtn = document.getElementById("theme-toggle");
+      const body = document.body;
 
-      dropdownBtn.addEventListener("click", (e) => {
-        e.stopPropagation();
-        dropdownMenu.classList.toggle("show");
-      });
+      toggleBtn.addEventListener("click", () => {
+        body.classList.toggle("dark");
+        body.classList.toggle("light");
 
-      document.addEventListener("click", (e) => {
-        if (
-          !dropdownBtn.contains(e.target) &&
-          !dropdownMenu.contains(e.target)
-        ) {
-          dropdownMenu.classList.remove("show");
-        }
-      });
-
-      // Explore button
-      function goToHomepage() {
-        window.location.href = "loading.html";
-      }
-
-      // Theme toggle
-      const themeToggle = document.getElementById("themeToggle");
-
-      themeToggle.addEventListener("click", () => {
-        document.body.classList.toggle("dark-mode");
-
-        // Switch icon 🌙 <-> 🌞
-        if (document.body.classList.contains("dark-mode")) {
-          themeToggle.textContent = "🌞";
+        if (body.classList.contains("dark")) {
+          toggleBtn.classList.remove("fa-moon");
+          toggleBtn.classList.add("fa-sun");
         } else {
-          themeToggle.textContent = "🌙";
+          toggleBtn.classList.remove("fa-sun");
+          toggleBtn.classList.add("fa-moon");
         }
+      });
+    </script>
+    <script>
+      const hamburger = document.getElementById("hamburger");
+      const navLinks = document.getElementById("nav-links");
+      const navButtons = document.querySelector(".nav-buttons");
+
+      hamburger.addEventListener("click", () => {
+        navLinks.classList.toggle("show");
+        navButtons.classList.toggle("show");
+        hamburger.innerHTML = navLinks.classList.contains("show")
+          ? '<i class="fas fa-times"></i>'
+          : '<i class="fas fa-bars"></i>';
       });
     </script>
   </body>
 </html>
-
-
-
-
-
