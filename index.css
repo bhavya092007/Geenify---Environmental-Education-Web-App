@@ -225,6 +225,7 @@ nav a:hover {
     display: flex;
     align-items: flex-start;
     margin-bottom: 15px;
+   flex-direction: column;
 }
 
 .info-section .text-content ul li::before {
@@ -479,4 +480,5 @@ body.dark-mode .info-section .text-content ul li {
   }
 }
 }
+
 
